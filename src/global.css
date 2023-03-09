@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+:root{
+    /* Amount text */
+--color-A: #1f1f1f; /*color*/
+--color-B: rgb(245, 245, 245); /*color*/
+--font-A: roboto,monospace;
+--font-B: 'DM Mono',monospace;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.font-A{
+    font-family: var(--font-A);
+}
+
+.color-A{
+    color: var(--color-A);
+}
+.color-B{
+    color: var(--color-B);
+}
