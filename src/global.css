@@ -22,6 +22,10 @@
     font-family: var(--font-A);
 }
 
+.font-B{
+    font-family: var(--font-B);
+}
+
 .color-A{
     color: var(--color-A);
 }
