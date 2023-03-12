@@ -6,7 +6,7 @@ import Overview from './components/Overview';
 
 function App() {
   return (
-    <div className='h-'>
+    <div>
       <Header />
       <Landing />
       <Overview />
