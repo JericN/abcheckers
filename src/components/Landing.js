@@ -14,13 +14,13 @@ export default function Landing() {
                 <img className='self-center w-72 h-72' src={Logo} alt="Logo" />
                 <div>
                     <div className='my-5 font-bold text-center font-A color-A lg:text-left lg:flex lg:my-8'>
-                        <div className='flex items-end justify-center text-4xl tracking-tighter sm:text-5xl lg:text-6xl'>Hi! We are&nbsp;</div>
+                        <div className='flex items-end justify-center text-4xl tracking-tighter lg:text-5xl'>Hi! We are&nbsp;</div>
                         <div>
-                            <span className='text-5xl sm:text-6xl text-violet-900 lg:text-7xl'>A</span>
+                            <span className='text-5xl sm:text-6xl text-sky-900 lg:text-7xl'>A</span>
                             <span className='text-5xl sm:text-6xl text-violet-900 lg:text-7xl'>B</span>
-                            <span className='text-5xl sm:text-6xl text-violet-900 lg:text-7xl'>C</span>
-                            <span className='text-4xl sm:text-5xl'>heckers</span>
-                            <span className='text-4xl sm:text-5xl'>🏁</span>
+                            <span className='text-5xl text-teal-900 sm:text-6xl lg:text-7xl'>C</span>
+                            <span className='text-4xl sm:text-5xl lg:text-6xl'>heckers</span>
+                            <span className='text-4xl sm:text-5xl lg:text-6xl'>🏁</span>
                         </div>
                     </div>
                     <div className='pr-0 text-xl text-justify sm:text-3xl font-B lg:pr-12'>
