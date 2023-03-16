@@ -33,6 +33,106 @@
     color: var(--color-B);
 }
 
-.custom-bg-checkers{
+.custom-bg{
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
     
 }
+.custom-gradient{
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    opacity: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(17,17,17,1) 26%, rgba(82,82,82,1) 45%, rgba(210,210,210,1) 67%, rgba(255,255,255,1) 83%);
+}
+
+.line-width{
+    width:0%
+}
+
+.animate-chip{
+    transition-property: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-logo{
+    transform: translateX(130%);
+}
+
+@keyframes widthh {
+    to {transform:translateX(0vw)}
+  }
+
+@keyframes lineExpand {
+    from {width:0%}
+    to {width:90%}
+  }
+
+@keyframes headUp {
+    from {transform:translateY(6rem)}
+    to {transform:translateY(0rem)}
+}
+
+@keyframes textShow{
+    from {
+        opacity:0;
+        transform:translateX(-1rem);
+    }
+    to {
+        opacity:1;
+        transform:translateX(0rem);
+    }
+}
+
+.text-border{
+    text-shadow: -1px 1px 0 #000,
+                      1px 1px 0 #000,
+                     1px -1px 0 #000,
+                    -1px -1px 0 #000;
+    
+}
+
+.animate-A{
+    --tw-text-opacity: 1;
+    color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+.animate-B{
+    --tw-text-opacity: 1;
+    color: rgb(76 29 149 / var(--tw-text-opacity));
+}
+.animate-C{
+    --tw-text-opacity: 1;
+    color: rgb(22 78 99 / var(--tw-text-opacity));
+}
+@keyframes letterFocus{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-0.5rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.waviy {
+    position: relative;
+  }
+  .waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }

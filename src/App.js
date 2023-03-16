@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Header from './components/Header';
-import Landing from './components/Landing';
-import Overview from './components/Overview';
-import Problem from './components/Problem';
+import Header from './sections/Header';
+import Landing from './sections/Landing';
+import Overview from './sections/Overview';
+import Problem from './sections/Problem';
 
 function App() {
   return (
