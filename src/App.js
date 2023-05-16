@@ -19,7 +19,7 @@ function App() {
   const problemRef = useRef();
 
   const overviewInView = useInView(overviewRef, {
-    margin: "0% 0px -50% 0px"
+    margin: "0% 0px -60% 0px"
   });
   const problemInView = useInView(problemRef, {
     margin: "-10% 0px 0% 0px"
@@ -30,7 +30,7 @@ function App() {
     function global() {
       console.log('overviewInView:', overviewInView, ', problemInView:', problemInView);
       globalControl.start({
-        background: (overviewInView || problemInView) ? '#000000' : '#ffffff',
+        background: (overviewInView || problemInView) ? '#121212' : '#ffffff',
       });
     }
     global();

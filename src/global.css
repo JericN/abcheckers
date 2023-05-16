@@ -7,8 +7,9 @@
 :root {
     /* Amount text */
     --color-A: #1f1f1f;
+    --color-B: #121212;
     /*color*/
-    --color-B: rgb(245, 245, 245);
+    --color-C: rgb(245, 245, 245);
     /*color*/
     --font-A: roboto, monospace;
     --font-B: 'DM Mono', monospace;
@@ -36,7 +37,13 @@
     color: var(--color-B);
 }
 
+.color-C {
+    color: var(--color-C);
+}
 
+.bg-A {
+    background-color: var(--color-A);
+}
 
 .animate-logo {
     animation: logo-animation 0.8s ease-in-out forwards;

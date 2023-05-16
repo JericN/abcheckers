@@ -1,5 +1,6 @@
 import React from 'react';
-import { motion } from "framer-motion";
+import { useRef } from 'react';
+import { motion, useAnimationControls } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 
 import Logo from '../images/logo.png';
@@ -7,6 +8,8 @@ import Chip_white from '../images/chip_white.png';
 import Chip_black from '../images/chip_black.png';
 
 
+
+// Spin only if moving
 
 export default function Landing() {
 
@@ -25,9 +28,9 @@ export default function Landing() {
 
 
     const iconVariants = {
-        hidden: { opacity: 0, x: '250%' },
-        visible: { opacity: 1, x: 0 },
-        tapping: { rotate: 360, scale: 0.7 },
+        hidden: { opacity: 0, x: '250%', scale: 0.3 },
+        visible: { opacity: 1, x: 0, scale: 1, transition: { type: "spring", stiffness: 250, damping: 15, mass: 1 } },
+        tapping: { rotate: 720, scale: 0.7, transition: { duration: 1.2, ease: "easeInOut" } },
         dragging: { rotate: [0, 360], transition: { duration: 0.4, repeat: Infinity, ease: 'linear' } }
     };
 
@@ -58,8 +61,9 @@ export default function Landing() {
                 duration: 3,
                 repeat: Infinity,
                 repeatType: "reverse",
-                delay: i * 1 + 5,
+                delay: (i * 2) + 5,
                 repeatDelay: 7,
+                ease: "easeOut"
             }
         })
     };
@@ -70,7 +74,7 @@ export default function Landing() {
             width: '100%',
             transition: {
                 delay: 6.5,
-                duration: 1.2,
+                duration: 1,
             }
         },
 
@@ -91,11 +95,13 @@ export default function Landing() {
             }
         }),
         active: i => ({
-            rotateY: [0, 360, 0],
+            rotateY: [0, 180, 0],
             transition: {
                 delay: i + 7.5,
                 repeatDelay: 10,
                 repeat: Infinity,
+                duration: 0.5,
+                ease: 'easeOut',
             }
         })
     };
@@ -106,12 +112,10 @@ export default function Landing() {
             opacity: 1,
             x: 0,
             transition: {
-                delay: i + 8
+                delay: i + 7.8,
             }
         }),
     };
-
-
 
     return (
         <section className='flex flex-col items-center min-h-screen py-24 lg:py-52 select-none'>
@@ -121,6 +125,12 @@ export default function Landing() {
                 <motion.img className='self-center w-52 sm:w-72 aspect-square z-20 lg:translate-x-[250%]'
                     src={Logo} alt="[Logo]"
                     variants={iconVariants}
+                    transition={{
+                        type: "spring",
+                        stiffness: 190,
+                        damping: 9,
+                        mass: 2
+                    }}
                     initial='hidden'
                     animate='visible'
                     whileTap='tapping'
@@ -142,7 +152,7 @@ export default function Landing() {
                     >
                         <TypeAnimation
                             sequence={[
-                                800, 'Hi!',
+                                1000, 'Hi!',
                                 1000, 'Hi! we are not a Game!',
                                 1000, 'Hi! we are ',
                             ]}
@@ -200,7 +210,7 @@ export default function Landing() {
 
             {/* LINE */}
             <motion.div
-                className='my-10 border-t-8 border-t-slate-900 md:max-w-3xl lg:max-w-6xl'
+                className='my-10 border-t-[6px] border-t-[#121212] md:max-w-3xl lg:max-w-6xl'
                 variants={lineVariant}
                 initial='hidden'
                 animate='visible'
