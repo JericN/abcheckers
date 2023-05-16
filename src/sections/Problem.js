@@ -1,7 +1,11 @@
 import React from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useAnimationControls, useInView } from "framer-motion";
 
-export default function Problem() {
-    const css_block = 'aspect-square w-80 sm:w-96 flex flex-col items-center gap-10 p-10';
+
+
+export default function Problem({ problemRef }) {
+    const css_block = 'aspect-square w-80 flex flex-col items-center gap-10 p-10 pb-0';
     const css_label = 'font-A font-bold text-xl sm:text-2xl border-b-4';
     const css_text = 'font-B text-sm sm:text-md text-center h-40 sm:h-52';
 
@@ -9,26 +13,64 @@ export default function Problem() {
     const css_whiteB = ' lg:bg-white lg:text-black';
     const css_whiteC = ' bg-white text-black lg:bg-black lg:text-white';
 
+    const titleControl = useAnimationControls();
+    const oneControl = useAnimationControls();
+    const twoControl = useAnimationControls();
+    const threeControl = useAnimationControls();
+    const fourControl = useAnimationControls();
+
+
+
+    const isInView = useInView(problemRef, {
+        margin: "-1% 0px -50% 0px"
+    });
+
+    useEffect(() => {
+        async function startAnimation() {
+            titleControl.start({
+                opacity: isInView ? 1 : 0,
+                y: isInView ? 0 : -100,
+            });
+            oneControl.start({
+                opacity: isInView ? 1 : 0,
+                x: isInView ? 0 : -200,
+            });
+            twoControl.start({
+                opacity: isInView ? 1 : 0,
+                y: isInView ? 0 : -200,
+            });
+            threeControl.start({
+                opacity: isInView ? 1 : 0,
+                y: isInView ? 0 : 200,
+            });
+            fourControl.start({
+                opacity: isInView ? 1 : 0,
+                x: isInView ? 0 : 200,
+            });
+        }
+        startAnimation();
+    }, [isInView]);
+
     return (
-        <section className='flex flex-col items-center min-h-screen pt-20 text-white bg-black'>
-            <h2 className='mb-16 text-5xl font-bold text-center font-A sm:text-7xl'>PROBLEM FORMULATION</h2>
+        <section ref={problemRef} className='flex flex-col items-center min-h-screen pt-20 text-white'>
+            <motion.h2 className='mb-16 text-5xl font-bold text-center font-A sm:text-7xl' animate={titleControl}>PROBLEM FORMULATION</motion.h2>
             <div className='grid lg:grid-cols-2'>
-                <div className={css_block + css_whiteA}>
+                <motion.div className={css_block + css_whiteA} animate={oneControl}>
                     <h3 className={css_label + ' border-b-black'}>RESEARCH QUESTION</h3>
-                    <p className={css_text + ' font-bold'}>Do mis/disinformation tweets that attribute inflation and the weakening peso solely to foreign factors, which lack context, gain more engagement than those that states it as one of the known factors?</p>
-                </div>
-                <div className={css_block}>
+                    <p className={css_text + ' font-bold'}>Do mis/disinformation tweets that attribute inflation and the weakening peso solely to foreign factors, which lack context, gain more engagement than those that state that it is only ONE of the factors.</p>
+                </motion.div>
+                <motion.div className={css_block} animate={twoControl}>
                     <h3 className={css_label}>HYPOTHESIS</h3>
-                    <p className={css_text}>Tweets that contain the mis/disinformation (which lack context) have significantly more engagement than those that do not contain mis/disinformation or has the proper context.</p>
-                </div>
-                <div className={css_block + css_whiteC}>
+                    <p className={css_text}>Tweets that contain the mis/disinformation (which lack context) stated in the research question have significantly more engagement than those that do not contain mis/disinformation or has the proper context.</p>
+                </motion.div>
+                <motion.div className={css_block + css_whiteC} animate={threeControl}>
                     <h3 className={css_label + ' border-b-black lg:border-b-white'}>∅ HYPOTHESIS</h3>
                     <p className={css_text}>There is no signifiant difference between the engagement of the tweets with the mis/disinformation that lacks context and the tweets that do not contain mis/disinformation or also has the proper context.</p>
-                </div>
-                <div className={css_block + css_whiteB}>
+                </motion.div>
+                <motion.div className={css_block + css_whiteB} animate={fourControl}>
                     <h3 className={css_label + ' border-b-white lg:border-b-black'}>ACTION PLAN</h3>
                     <p className={css_text + ' font-bold'}>Analyze the frequency of likes and retweets of tweets regarding the Philippines’ inflation and peso (both mis/disinformation and non-mis/disinformation).</p>
-                </div>
+                </motion.div>
             </div>
         </section >
     );
