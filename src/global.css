@@ -4,53 +4,105 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
 
-:root{
+:root {
     /* Amount text */
---color-A: #1f1f1f; /*color*/
---color-B: rgb(245, 245, 245); /*color*/
---font-A: roboto,monospace;
---font-B: 'DM Mono',monospace;
+    --color-A: #1f1f1f;
+    /*color*/
+    --color-B: rgb(245, 245, 245);
+    /*color*/
+    --font-A: roboto, monospace;
+    --font-B: 'DM Mono', monospace;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.font-A{
+.font-A {
     font-family: var(--font-A);
 }
 
-.font-B{
+.font-B {
     font-family: var(--font-B);
 }
 
-.color-A{
+.color-A {
     color: var(--color-A);
 }
-.color-B{
+
+.color-B {
     color: var(--color-B);
 }
 
-.custom-bg{
+
+
+.animate-logo {
+    animation: logo-animation 0.8s ease-in-out forwards;
+
+}
+
+@keyframes logo-animation {
+    to {
+        transform: translateX(0vw)
+    }
+}
+
+
+.animate-headline {
+    animation: headline-up 0.2s linear forwards;
+}
+
+@keyframes headline-up {
+    from {
+        transform: translateY(6rem)
+    }
+
+    to {
+        transform: translateY(0rem)
+    }
+}
+
+
+.animate-description {
+    animation: description-up 0.3s linear forwards
+}
+
+@keyframes description-up {
+    from {
+        opacity: 0;
+        transform: translateX(-1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+
+
+
+.custom-bg {
     transition-property: background-color;
     transition-duration: 0.3s;
     transition-timing-function: linear;
-    
+
 }
-.custom-gradient{
+
+.custom-gradient {
     transition-duration: 0.3s;
     transition-timing-function: linear;
     opacity: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(17,17,17,1) 26%, rgba(82,82,82,1) 45%, rgba(210,210,210,1) 67%, rgba(255,255,255,1) 83%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 26%, rgba(82, 82, 82, 1) 45%, rgba(210, 210, 210, 1) 67%, rgba(255, 255, 255, 1) 83%);
 }
 
-.line-width{
-    width:0%
+.line-width {
+    width: 0%
 }
 
-.animate-chip{
+.animate-chip {
     transition-property: transform;
     transition-duration: 0.2s;
     transition-timing-function: linear;
@@ -58,71 +110,98 @@
     transform: translateY(0);
 }
 
-.animate-logo{
-    transform: translateX(130%);
-}
 
-@keyframes widthh {
-    to {transform:translateX(0vw)}
-  }
 
 @keyframes lineExpand {
-    from {width:0%}
-    to {width:90%}
-  }
-
-@keyframes headUp {
-    from {transform:translateY(6rem)}
-    to {transform:translateY(0rem)}
-}
-
-@keyframes textShow{
     from {
-        opacity:0;
-        transform:translateX(-1rem);
+        width: 0%
     }
+
     to {
-        opacity:1;
-        transform:translateX(0rem);
+        width: 90%
     }
 }
 
-.text-border{
+
+
+
+.text-border {
     text-shadow: -1px 1px 0 #000,
-                      1px 1px 0 #000,
-                     1px -1px 0 #000,
-                    -1px -1px 0 #000;
-    
+        1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+
 }
 
-.animate-A{
+line {
+    stroke-width: 10px;
+    stroke-linecap: round;
+    fill: transparent;
+}
+
+@keyframes pulse {
+    10% {
+        transform: scale(1);
+        color: black;
+    }
+
+    30% {
+        transform: scale(2);
+        color: red;
+    }
+
+    50% {
+        transform: scale(1);
+        color: black;
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.animate-A {
     --tw-text-opacity: 1;
     color: rgb(127 29 29 / var(--tw-text-opacity));
 }
-.animate-B{
+
+.animate-B {
     --tw-text-opacity: 1;
     color: rgb(76 29 149 / var(--tw-text-opacity));
 }
-.animate-C{
+
+.animate-C {
     --tw-text-opacity: 1;
     color: rgb(22 78 99 / var(--tw-text-opacity));
 }
-@keyframes letterFocus{
-    0%{
+
+@keyframes letterFocus {
+    0% {
         transform: translateY(0);
     }
-    50%{
+
+    50% {
         transform: translateY(-0.5rem);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
 
 .waviy {
     position: relative;
-  }
-  .waviy span {
+}
+
+.waviy span {
     position: relative;
     display: inline-block;
     font-size: 40px;
@@ -130,9 +209,12 @@
     text-transform: uppercase;
     animation: flip 2s infinite;
     animation-delay: calc(.2s * var(--i))
-  }
-  @keyframes flip {
-    0%,80% {
-      transform: rotateY(360deg) 
+}
+
+@keyframes flip {
+
+    0%,
+    80% {
+        transform: rotateY(360deg)
     }
-  }
+}
