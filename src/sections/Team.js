@@ -9,9 +9,9 @@ const delay = ms => new Promise(
 );
 
 export default function Team() {
-    const css_box = 'max-w-lg lg:max-w-3xl xl:max-w-6xl flex items-center border-4 border-[#363636] rounded-2xl p-5 xl:p-10 gap-10';
+    const css_box = 'max-w-lg lg:max-w-3xl xl:max-w-6xl flex items-center border-4 border-[#363636] rounded-2xl p-2 xl:p-5 gap-10';
     const css_icon = 'w-40 z-30 drag-none';
-    const css_desc = 'text-white translate-x-[-140px] z-10 pr-10 select-none text-justify';
+    const css_desc = 'text-white translate-x-[-150px] z-10 pr-10 select-none text-justify border-r-4 border-[#ffffff]';
     const css_name = 'absolute translate-x-[180px] font-bold text-4xl z-20 select-none';
 
 
@@ -23,6 +23,7 @@ export default function Team() {
     const iconTwo = useRef(null);
     const iconThree = useRef(null);
 
+    const titleControl = useAnimationControls();
     const iconOneControl = useAnimationControls();
     const iconTwoControl = useAnimationControls();
     const iconThreeControl = useAnimationControls();
@@ -43,7 +44,7 @@ export default function Team() {
     const opacityThree = useTransform(offsetThree, [0, 300], [1, 0]);
 
     const panOneHandler = (event, info) => {
-        var threshold = (boxOne.current.offsetWidth / 2) - iconOne.current.offsetWidth / 2 - 40;
+        var threshold = (boxOne.current.offsetWidth / 2) - iconOne.current.offsetWidth / 2 - 20;
         if (offsetOne.get() < threshold / 2) {
             iconOneControl.start({ x: 0 });
         } else if (offsetOne.get() > threshold * 1.5) {
@@ -58,7 +59,7 @@ export default function Team() {
     };
 
     const panTwoHandler = (event, info) => {
-        var threshold = (boxTwo.current.offsetWidth / 2) - iconTwo.current.offsetWidth / 2 - 40;
+        var threshold = (boxTwo.current.offsetWidth / 2) - iconTwo.current.offsetWidth / 2 - 20;
         if (offsetTwo.get() < threshold / 2) {
             iconTwoControl.start({ x: 0 });
         } else if (offsetTwo.get() > threshold * 1.5) {
@@ -72,7 +73,7 @@ export default function Team() {
         }
     };
     const panThreeHandler = (event, info) => {
-        var threshold = (boxThree.current.offsetWidth / 2) - iconThree.current.offsetWidth / 2 - 40;
+        var threshold = (boxThree.current.offsetWidth / 2) - iconThree.current.offsetWidth / 2 - 20;
         if (offsetThree.get() < threshold / 2) {
             iconThreeControl.start({ x: 0 });
         } else if (offsetThree.get() > threshold * 1.5) {
@@ -93,6 +94,10 @@ export default function Team() {
 
     useEffect(() => {
         if (isInView) {
+            titleControl.start({
+                opacity: 1,
+                y: 0
+            });
             iconOneControl.start({ x: 0 });
             iconTwoControl.start({ x: 0 });
             iconThreeControl.start({ x: 0 });
@@ -110,6 +115,10 @@ export default function Team() {
             });
 
         } else {
+            titleControl.start({
+                opacity: 0,
+                y: -100
+            });
             boxOneControl.start({
                 x: -200,
                 opacity: 0
@@ -127,7 +136,8 @@ export default function Team() {
     }, [isInView]);
 
     return (
-        <section ref={mainRef} className='flex flex-col items-center min-h-screen mt-80 gap-10 font-B'>
+        <section ref={mainRef} className='flex flex-col items-center mt-80 mb-20 gap-10 font-B'>
+            <motion.div className='text-5xl font-bold text-center font-A sm:text-6xl' animate={titleControl}>OUR TEAM</motion.div>
             <motion.div className={css_box} ref={boxOne} style={{ background: backgroundOne }} animate={boxOneControl}>
                 <motion.img src={Chip_white} className={css_icon + ' one'} ref={iconOne} style={{ x: offsetOne }} custom={1} animate={iconOneControl} drag='x' dragMomentum={false} dragConstraints={boxOne} dragElastic={0.01} onDragEnd={panOneHandler} />
                 <motion.div className={css_desc}>Hello, call me Ann! I'm currently a 3rd year Computer Science student at the University of the Philippines Diliman. I took this course because I thought that it was both fun and fascinating to see what people could do when applying Computer Science to our daily lives. The field I'm most interested in is data science, which is why I am excited to see where our class for it (CS 132) takes us.</motion.div>
