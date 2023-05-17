@@ -73,19 +73,19 @@ export default function Problem({ problemRef }) {
         <section ref={problemRef} className='flex flex-col items-center min-h-screen pt-20 text-white'>
             <motion.h2 className='mb-16 text-5xl font-bold text-center font-A sm:text-6xl border-b-4' animate={titleControl} drag dragSnapToOrigin='true' dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }} onDragEnd={endDragHandler}>PROBLEM FORMULATION</motion.h2>
             <div className='grid lg:grid-cols-2'>
-                <motion.div className={css_block + css_whiteA} animate={oneControl} variants={blocksVariants} whileHover='hover' drag dragMomentum={false}>
+                <motion.div className={css_block + css_whiteA} animate={oneControl} variants={blocksVariants} whileHover='hover' drag dragTransition={{ bounceStiffness: 10, bounceDamping: 10, mass: 100 }}>
                     <h3 className={css_label + ' border-b-[#121212]'}>RESEARCH QUESTION</h3>
                     <p className={css_text + ' font-bold'}>Do mis/disinformation tweets that attribute inflation and the weakening peso solely to foreign factors, which lack context, gain more engagement than those that state that it is only ONE of the factors.</p>
                 </motion.div>
-                <motion.div className={css_block} animate={twoControl} variants={blocksVariants} whileHover='hover' drag dragMomentum={false}>
+                <motion.div className={css_block} animate={twoControl} variants={blocksVariants} whileHover='hover' drag>
                     <h3 className={css_label}>HYPOTHESIS</h3>
                     <p className={css_text}>Tweets that contain the mis/disinformation (which lack context) stated in the research question have significantly more engagement than those that do not contain mis/disinformation or has the proper context.</p>
                 </motion.div>
-                <motion.div className={css_block + css_whiteC} animate={threeControl} variants={blocksVariants} whileHover='hover' drag dragMomentum={false}>
+                <motion.div className={css_block + css_whiteC} animate={threeControl} variants={blocksVariants} whileHover='hover' drag>
                     <h3 className={css_label + ' border-b-[#121212] lg:border-b-white'}>∅ HYPOTHESIS</h3>
                     <p className={css_text}>There is no signifiant difference between the engagement of the tweets with the mis/disinformation that lacks context and the tweets that do not contain mis/disinformation or also has the proper context.</p>
                 </motion.div>
-                <motion.div className={css_block + css_whiteB} animate={fourControl} variants={blocksVariants} whileHover='hover' drag dragMomentum={false}>
+                <motion.div className={css_block + css_whiteB} animate={fourControl} variants={blocksVariants} whileHover='hover' drag>
                     <h3 className={css_label + ' border-b-white lg:border-b-[#121212]'}>ACTION PLAN</h3>
                     <p className={css_text + ' font-bold'}>Analyze the frequency of likes and retweets of tweets regarding the Philippines’ inflation and peso (both mis/disinformation and non-mis/disinformation).</p>
                 </motion.div>

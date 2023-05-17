@@ -45,47 +45,14 @@
     background-color: var(--color-A);
 }
 
-.animate-logo {
-    animation: logo-animation 0.8s ease-in-out forwards;
 
-}
-
-@keyframes logo-animation {
-    to {
-        transform: translateX(0vw)
-    }
-}
-
-
-.animate-headline {
-    animation: headline-up 0.2s linear forwards;
-}
-
-@keyframes headline-up {
-    from {
-        transform: translateY(6rem)
-    }
-
-    to {
-        transform: translateY(0rem)
-    }
-}
-
-
-.animate-description {
-    animation: description-up 0.3s linear forwards
-}
-
-@keyframes description-up {
-    from {
-        opacity: 0;
-        transform: translateX(-1rem);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0rem);
-    }
+.drag-none {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-drag: none;
 }
 
 

@@ -7,6 +7,8 @@ import Header from './sections/Header';
 import Landing from './sections/Landing';
 import Overview from './sections/Overview';
 import Problem from './sections/Problem';
+import Data from './sections/Data';
+import Team from './sections/Team';
 
 
 
@@ -22,7 +24,7 @@ function App() {
     margin: "0% 0px -60% 0px"
   });
   const problemInView = useInView(problemRef, {
-    margin: "-10% 0px 0% 0px"
+    margin: "-30% 0px 0% 0px"
   });
   const globalControl = useAnimationControls();
 
@@ -42,7 +44,8 @@ function App() {
       <Landing />
       <Overview overviewRef={overviewRef} />
       <Problem problemRef={problemRef} />
-      <Landing />
+      <Data />
+      <Team />
     </motion.div >
   );
 }
