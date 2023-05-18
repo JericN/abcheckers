@@ -103,15 +103,24 @@ export default function Team() {
             iconThreeControl.start({ x: 0 });
             boxOneControl.start({
                 x: 0,
-                opacity: 1
+                opacity: 1,
+                transition: {
+                    delay: 0
+                }
             });
             boxTwoControl.start({
                 x: 0,
-                opacity: 1
+                opacity: 1,
+                transition: {
+                    delay: 0.2
+                }
             });
             boxThreeControl.start({
                 x: 0,
-                opacity: 1
+                opacity: 1,
+                transition: {
+                    delay: 0.4
+                }
             });
 
         } else {
