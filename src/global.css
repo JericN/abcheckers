@@ -13,12 +13,14 @@
     /*color*/
     --font-A: roboto, monospace;
     --font-B: 'DM Mono', monospace;
+
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 .font-A {
@@ -56,21 +58,6 @@
 }
 
 
-
-
-.custom-bg {
-    transition-property: background-color;
-    transition-duration: 0.3s;
-    transition-timing-function: linear;
-
-}
-
-.custom-gradient {
-    transition-duration: 0.3s;
-    transition-timing-function: linear;
-    opacity: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 17, 1) 26%, rgba(82, 82, 82, 1) 45%, rgba(210, 210, 210, 1) 67%, rgba(255, 255, 255, 1) 83%);
-}
 
 
 

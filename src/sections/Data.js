@@ -7,8 +7,9 @@ import Visualization from './Visualization';
 
 export default function Data() {
 
+    const css_title = 'absolute font-bold font-A text-xblack text-6xl sm:text-[10vw] select-none';
 
-    const css_box = 'flex flex-col items-center border-4 rounded-2xl border-[#333333] max-w-6xl w-full p-5 px-10 gap-4 mb-10';
+    const css_box = 'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4';
     const css_box_b = 'font-B flex flex-col items-center border-4 rounded-2xl border-[#333333] max-w-3xl w-full p-5 px-10 gap-4 mb-10';
     const css_small_title = 'font-bold font-A text-2xl';
     const titleControl = useAnimationControls();
@@ -39,9 +40,9 @@ export default function Data() {
 
     return (
         <section className='flex flex-col items-center min-h-screen select-none text-justify'>
-            <div className='h-[50vh]'></div>
-            <motion.div ref={titleRef} className='mb-16 font-bold font-A color-B text-6xl sm:text-7xl select-none' animate={titleControl}>DATA EXPLORATION</motion.div>
-            <motion.div ref={preprocessRef} className={css_box + ' bg-[#121212] text-white'} animate={preprocessControl}>
+            <motion.div ref={titleRef} className={css_title} animate={titleControl}>DATA EXPLORATION</motion.div>
+
+            <motion.div ref={preprocessRef} className={css_box + ' bg-xblack-1 text-white mt-32'} animate={preprocessControl}>
                 <div className='font-bold font-A text-3xl sm:text-5xl select-none ' >PREPROCESSING</div>
                 <div className='text-justify font-B'>Our dataset contains data structured into multiple rows and columns. Each row represents one tweet and each column represents a feature of a tweet. These features include Account handle	Account name, Account bio, Account type, Joined, Following, Followers, Location, Tweet, Tweet Type, Date posted, Content type, and the number of Likes, Replies, Retweets, Quote Tweets, and Views.</div>
             </motion.div>

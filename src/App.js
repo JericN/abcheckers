@@ -7,6 +7,7 @@ import Header from './sections/Header';
 import Landing from './sections/Landing';
 import Overview from './sections/Overview';
 import Problem from './sections/Problem';
+import DataCollection from './sections/DataCollection';
 import Data from './sections/Data';
 import Team from './sections/Team';
 
@@ -21,18 +22,17 @@ function App() {
   const problemRef = useRef();
 
   const overviewInView = useInView(overviewRef, {
-    margin: "0% 0px -60% 0px"
+    margin: "0% 0px -40% 0px"
   });
   const problemInView = useInView(problemRef, {
-    margin: "-30% 0px 0% 0px"
+    margin: "-40% 0px 0% 0px"
   });
   const globalControl = useAnimationControls();
 
   useEffect(() => {
     function global() {
-      console.log('overviewInView:', overviewInView, ', problemInView:', problemInView);
       globalControl.start({
-        background: (overviewInView || problemInView) ? '#121212' : '#ffffff',
+        background: (overviewInView || problemInView) ? '#1F1F1F' : '#F1F1F1',
       });
     }
     global();
@@ -44,6 +44,7 @@ function App() {
       <Landing />
       <Overview overviewRef={overviewRef} />
       <Problem problemRef={problemRef} />
+      <DataCollection />
       <Data />
       <Team />
     </motion.div >
