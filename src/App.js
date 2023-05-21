@@ -8,7 +8,9 @@ import Landing from './sections/Landing';
 import Overview from './sections/Overview';
 import Problem from './sections/Problem';
 import DataCollection from './sections/DataCollection';
-import Data from './sections/Data';
+import DataProcessing from './sections/DataProcessing';
+import Visualization from './sections/Visualization';
+
 import Team from './sections/Team';
 
 
@@ -45,7 +47,8 @@ function App() {
       <Overview overviewRef={overviewRef} />
       <Problem problemRef={problemRef} />
       <DataCollection />
-      <Data />
+      <DataProcessing />
+      <Visualization />
       <Team />
     </motion.div >
   );

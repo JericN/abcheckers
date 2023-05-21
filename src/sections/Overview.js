@@ -12,7 +12,7 @@ const delay = ms => new Promise(
 
 
 export default function Overview({ overviewRef }) {
-    const css_title = 'mb-16 font-bold text-5xl sm:text-6xl select-none border-b-4 border-b-[#ffffff00]';
+    const css_title = 'mb-16 font-bold text-5xl sm:text-7xl select-none border-b-4 border-b-[#ffffff00]';
     const css_label = 'font-A font-bold text-3xl mt-4 w-44 select-none text-center lg:text-right';
     const css_desc = 'font-B text-md text-justify select-none border-2 border-[#ffffff00] rounded-lg p-4';
 

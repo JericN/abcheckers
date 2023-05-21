@@ -71,7 +71,7 @@ export default function Problem({ problemRef }) {
         <section className='min-h-screen'>
             <div ref={problemRef} className='flex flex-col items-center text-xwhite'>
 
-                <motion.h2 className='mb-16 text-5xl font-bold text-center font-A sm:text-6xl border-b-4' animate={titleControl} drag dragSnapToOrigin='true' dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }} onDragEnd={endDragHandler}>WHAT ARE WE LOOKING FOR?</motion.h2>
+                <motion.h2 className='mb-16 text-5xl font-bold text-center font-A sm:text-7xl border-b-4' animate={titleControl} drag dragSnapToOrigin='true' dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }} onDragEnd={endDragHandler}>WHAT ARE WE LOOKING FOR?</motion.h2>
 
                 <div className='grid lg:grid-cols-2'>
                     <motion.div className={css_block + css_block_a} animate={oneControl} whileHover={blockWhileHover} drag dragTransition={{ bounceStiffness: 10, bounceDamping: 10, mass: 100 }}>
