@@ -3,8 +3,7 @@ import React from 'react';
 export default function dataTable() {
 
     const data = {
-        "Variable": "Value",
-        "tweet URL": "https://twitter.com/inquirerdotnet/status/1579815664701026304",
+        "tweet URL": "https://twitter.com/inquirerdotnet/15798156647",
         "account handle": "@inquirerdotnet",
         "account name": "Inquirer",
         "account bio": "Balanced News, Fearless Views. inquirer.net",
@@ -13,7 +12,7 @@ export default function dataTable() {
         "following": "1810",
         "followers": "3731332",
         "location": "Makati City, Philippines",
-        "tweet": "Marcos: “The peso is not weak, because the peso is weak...",
+        "tweet": "Marcos: “The peso is not weak, because the...",
         "tweet type": "Text,Image,URL",
         "date posted": "11/10/2022 20:46",
         "content type": "Rational",
@@ -29,8 +28,8 @@ export default function dataTable() {
                     Object.keys(data).map((key, index) => {
                         return (
                             <tr key={index}>
-                                <td className='text-right p-1 px-4 border-2 border-[#121212]'>{key}</td>
-                                <td className='border-2 px-4 border-[#121212]'>{data[key]}</td>
+                                <td className='text-right p-1 px-4 border-2 bg-xblack-2 text-xwhite border-xwhite'>{key}</td>
+                                <td className='border-2 px-4 border-xwhite border-b-xblack-3'>{data[key]}</td>
                             </tr>
                         );
                     })

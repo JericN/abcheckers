@@ -20,7 +20,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 export default function PieChartGrap({ data, title, caption }) {
     return (
-        <div className='w-full max-w-xl border-4 border-[#555555] p-5 rounded-3xl flex flex-col items-center'>
+        <div className='w-full max-w-xl border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center'>
             <div className='font-B color-B text-xl font-bold'>{title}</div>
             <div className='w-3/4 aspect-square '>
                 <ResponsiveContainer >
@@ -43,7 +43,7 @@ export default function PieChartGrap({ data, title, caption }) {
                     </PieChart>
                 </ResponsiveContainer>
             </div>
-            <div className='mt-10 font-B text-justify color-B'>{caption}</div>
+            <div className='mt-10 font-B text-justify color-B mx-4'>{caption}</div>
         </div>
     );
 }

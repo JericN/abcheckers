@@ -1,5 +1,5 @@
 import React from 'react';
-import heatMap from '../../images/heatmap.png';
+import heatMap from '../../images/heatMapGraph.png';
 
 export default function HeatmapGraphA({ title, caption }) {
     return (

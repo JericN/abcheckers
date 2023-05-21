@@ -4,11 +4,11 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 
 
-export default function BarChartGraph({ data, title, caption, xLabel, yLabel }) {
+export default function BarChartGraph({ addClass, height, data, title, caption, xLabel, yLabel }) {
     return (
-        <div className='w-full max-w-2xl aspect-[4/3]  border-4 border-[#555555] p-5 rounded-3xl flex flex-col items-center'>
+        <div className={'w-full border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center ' + addClass}>
             <div className='font-B color-B text-xl font-bold'>{title}</div>
-            <div className='w-full h-5/6 mr-10 mt-5'>
+            <div className={'w-full mr-10 mt-5 ' + height}>
                 <ResponsiveContainer>
                     <BarChart
                         data={data}
@@ -27,7 +27,7 @@ export default function BarChartGraph({ data, title, caption, xLabel, yLabel }) 
                     </BarChart>
                 </ResponsiveContainer>
             </div>
-            <div className='mt-10 font-B text-justify color-B'>{caption}</div>
+            <div className='mt-5 font-B text-justify color-B mx-3'>{caption}</div>
         </div>
     );
 }

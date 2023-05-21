@@ -60,7 +60,7 @@ export default function InteractiveTimeSeries({ title, caption, xLabel }) {
 
     return (
 
-        <div className='w-full max-w-3xl aspect-[4/3]  border-4 border-[#555555] p-5 rounded-3xl flex flex-col items-center'>
+        <div className='w-full max-w-6xl aspect-[2/1] border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center'>
 
             <div className='font-B color-B text-xl font-bold'>{title}</div>
             <div className='w-full h-3/4 mr-10 mt-5'>

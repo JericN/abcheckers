@@ -14,7 +14,7 @@ export default function DataCollection() {
     const [dataRef, animateData] = useAnimate();
 
     const titleInView = useInView(titleRef, { margin: "-30% 0px -40% 0px" });
-    const dataInView = useInView(dataRef, { margin: "-30% 0px -20% 0px" });
+    const dataInView = useInView(dataRef, { margin: "-30% 0px 0% 0px" });
 
     async function startAnimation() {
         animateTitle('.class-container', { opacity: 1, y: 0 });
@@ -24,6 +24,7 @@ export default function DataCollection() {
         cards.forEach(async (card, index) => {
             animateTitle(card, { opacity: 1, x: 0 }, { delay: 0.5 + index * 0.2 });
         });
+        animateData('div', { opacity: 1, y: 0 }, { delay: 1.5 });
     }
 
 
@@ -35,20 +36,19 @@ export default function DataCollection() {
         cards.forEach((card, index) => {
             animateTitle(card, { opacity: 0, x: -200 });
         });
+        animateData('div', { opacity: 0, y: -200 });
+
     }
 
     useEffect(() => {
         if (titleInView) {
             startAnimation();
+
         } else {
             endAnimation();
         }
-        if (dataInView) {
-            animateData('div', { opacity: 1, y: 0 });
-        } else {
-            animateData('div', { opacity: 0, y: -200 });
-        }
-    }, [titleInView, dataInView]);
+
+    }, [titleInView]);
 
 
 
@@ -59,7 +59,7 @@ export default function DataCollection() {
         const obj = el.target;
         const id = el.target.id[4];
 
-        animateCards(obj, { background: '#F0F0F0', scale: 1.03 }, { type: 'tween', duration: 0.2, ease: 'easeIn' });
+        animateCards(obj, { background: '#F0F0F0', scale: 1.01 }, { type: 'tween', duration: 0.2, ease: 'easeIn' });
         setCardFlipped((cardFlipped) => (cardFlipped[id] = true, [...cardFlipped]));
     }
 
@@ -93,11 +93,13 @@ export default function DataCollection() {
         );
     }
 
+
+
     return (
         <section className='min-h-screen my-44'>
             <div ref={titleRef} className='min-h-screen flex flex-col items-center text-xblack gap-5'>
-                <div className='class-container flex flex-col justify-center items-center gap-10 border-8 border-xblack-3 rounded-2xl p-10 mb-10'>
-                    <motion.div className='class-title font-A font-bold text-6xl sm:text-7xl select-none'>How did we Collect our Data?</motion.div>
+                <div className='class-container flex flex-col justify-center items-center gap-5 border-8 border-xblack-3 rounded-2xl p-5 px-10 mb-10'>
+                    <motion.div className='class-title font-A font-bold text-6xl sm:text-6xl select-none'>How did we Collect our Data?</motion.div>
                     <motion.div className='class-desc font-B text-sm sm:text-lg text-justify max-w-6xl select-none'>
                         Our target are tweets that responded to Sandro Marcos statement regarding his reasoning why the philippines is experiencing hurdles in its economic stability. The search scope is from the day of his statement oct X till the last day of the year 2022.
                     </motion.div>
