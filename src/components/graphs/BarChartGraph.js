@@ -4,7 +4,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 
 
-export default function BarChartGraph({ addClass, height, data, title, caption, xLabel, yLabel }) {
+export default function BarChartGraph({ addClass, height, scale, data, title, caption, xLabel, yLabel }) {
     return (
         <div className={'w-full border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center ' + addClass}>
             <div className='font-B color-B text-xl font-bold'>{title}</div>
@@ -20,10 +20,10 @@ export default function BarChartGraph({ addClass, height, data, title, caption, 
                         }}
                     >
                         <CartesianGrid />
-                        <XAxis dataKey="name" label={{ value: xLabel, position: "bottom", offset: -5 }} />
+                        <XAxis dataKey="name" scale={scale} label={{ value: xLabel, position: "bottom", offset: -5 }} />
                         <YAxis label={{ value: yLabel, angle: -90, position: 'left', offset: -20 }} />
                         <Tooltip />
-                        <Bar dataKey="value" fill="#121212" />
+                        <Bar dataKey="value" fill="#121212" barSize={50} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

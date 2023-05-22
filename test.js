@@ -188,5 +188,7 @@ function groupDates(DatePosted, interval) {
     });
     console.log(frequencyData);
 }
-groupDates(DatePosted, 5);
+
+
+
 

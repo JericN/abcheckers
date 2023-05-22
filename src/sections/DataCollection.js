@@ -93,7 +93,9 @@ export default function DataCollection() {
         );
     }
 
+    function temp() {
 
+    }
 
     return (
         <section className='min-h-screen my-44'>
@@ -113,10 +115,14 @@ export default function DataCollection() {
                 </div>
                 <motion.div ref={dataRef} className='font-B mt-20 flex flex-col items-center gap-10 max-w-5xl select-none'>
                     <motion.div className='font-medium text-3xl'>We collected 150 data points to be used for exploration.</motion.div>
-                    <motion.div className='flex justify-center font-bold text-lg border-4 rounded-2xl border-xblack-3 p-2 px-10' initial={{ background: '#F0F0F0' }} whileHover={{ scale: 1.07, background: '#2F2F2F', color: '#F0F0F0' }} whileTap={{ scale: 0.9 }}> See our Data</motion.div>
+                    <motion.div className='flex justify-center font-bold text-lg border-4 rounded-2xl border-xblack-3 p-2 px-10' initial={{ background: '#F0F0F0' }} whileHover={{ scale: 1.07, background: '#2F2F2F', color: '#F0F0F0' }} whileTap={{ scale: 0.9 }} onClick={() => {
+                        window.open('https://github.com/JericNarte/cs132-data/blob/master/full_clean_data.csv', '_blank');
+                    }}> See our Data</motion.div>
                 </motion.div>
             </div>
         </section >
     );
 }
+
+
 

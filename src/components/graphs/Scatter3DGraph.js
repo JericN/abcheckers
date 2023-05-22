@@ -2,58 +2,40 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Papa from 'papaparse';
+
 
 
 export default function Scatter3DGraph({ data, title, caption }) {
-    const [csvData, setCsvData] = useState([]);
+
     const [rawData, setRawData] = useState({ likes: [], replies: [], retweets: [] });
     const [dataType, setDataType] = useState('raw');
     const [isOutliers, setOutliers] = useState(false);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(
-                    'https://raw.githubusercontent.com/JericNarte/cs132-data/master/full_clean_data.csv'
-                );
-                const results = Papa.parse(response.data, { header: true }).data;
-                setCsvData(results);
-            } catch (error) {
-                console.error('Error reading CSV file:', error);
-            }
 
-        };
-
-        fetchData();
-
-    }, []);
 
     useEffect(() => {
-        if (csvData.length === 0) return;
-        console.log(dataType, isOutliers);
+        if (data.length === 0) return;
         getData();
-    }, [csvData, dataType, isOutliers]);
+    }, [data, dataType, isOutliers]);
 
 
     function getData() {
-        var data = { likes: [], replies: [], retweets: [] };
+        var retData = { likes: [], replies: [], retweets: [] };
         const raw = dataType == 'raw';
 
 
-        for (var i = 0; i < csvData.length; i++) {
-            const like = csvData[i]['likes'];
-            const rep = csvData[i]['replies'];
-            const ret = csvData[i]['retweets'];
-            const zlike = csvData[i]['z-likes'];
-            const zrep = csvData[i]['z-replies'];
-            const zret = csvData[i]['z-retweets'];
+        for (var i = 0; i < data.length; i++) {
+            const like = data[i]['likes'];
+            const rep = data[i]['replies'];
+            const ret = data[i]['retweets'];
+            const zlike = data[i]['z-likes'];
+            const zrep = data[i]['z-replies'];
+            const zret = data[i]['z-retweets'];
             if (isOutliers && (Math.abs(zlike) > 3 || Math.abs(zrep) > 3 || Math.abs(zret) > 3)) continue;
-            data.likes.push(raw ? like : zlike);
-            data.replies.push(raw ? rep : zrep);
-            data.retweets.push(raw ? ret : zret);
+            retData.likes.push(raw ? like : zlike);
+            retData.replies.push(raw ? rep : zrep);
+            retData.retweets.push(raw ? ret : zret);
         }
-        setRawData(data);
+        setRawData(retData);
     }
 
     const css_button = 'flex justify-center items-center font-B font-semibold text-sm border-[3px] rounded-xl border-xblack-3 select-none p-1 w-40';
@@ -76,7 +58,7 @@ export default function Scatter3DGraph({ data, title, caption }) {
                         mode: 'markers',
                         marker: {
                             size: 5,
-                            color: 'red',
+                            color: '#431313',
                             opacity: 0.8
                         },
                     },

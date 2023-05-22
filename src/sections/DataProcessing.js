@@ -1,14 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useAnimation, useAnimationControls, useTransform, useMotionValue, useInView, useScroll } from 'framer-motion';
+import { motion, useAnimation, useAnimationControls, useTransform, useMotionValue, useInView, useScroll, useAnimate } from 'framer-motion';
 
 
 import Datatable from '../components/Datatable';
 
 export default function Data() {
 
-    const css_title = '';
-
-    const css_box = 'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4';
+    const css_box_head = 'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4 bg-xblack-2 mb-10';
+    const css_box_title = 'font-bold font-A text-xwhite text-3xl sm:text-4xl';
+    const css_box_desc = 'text-justify font-B text-xwhite';
 
     const css_box_b = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full py-10 px-10 gap-4';
     const css_box_cln = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full pt-5 pb-8 px-10 gap-4';
@@ -21,36 +21,93 @@ export default function Data() {
 
 
 
+    const [explorationRef, explorationAnimation] = useAnimate();
+    const [preprocessingRef, preprocessingAnimation] = useAnimate();
+    const [structureRef, structureAnimation] = useAnimate();
+    const [cleaningRef, cleaningAnimation] = useAnimate();
+    const [nlpRef, nlpAnimation] = useAnimate();
 
 
+    const inViewExploration = useInView(explorationRef, { margin: "-20% 0px -20% 0px" });
+    const inViewPreprocessing = useInView(preprocessingRef, { margin: "-20% 0px -20% 0px" });
+    const inViewStructure = useInView(structureRef, { margin: "-20% 0px -20% 0px" });
+    const inViewCleaning = useInView(cleaningRef, { margin: "-20% 0px -20% 0px" });
+    const inViewNLP = useInView(nlpRef, { margin: "-20% 0px -20% 0px" });
 
 
+    useEffect(() => {
+        if (inViewExploration) { explorationAnimation(explorationRef.current, { opacity: 1, x: 0 }); }
+        else { explorationAnimation(explorationRef.current, { opacity: 0, x: -200 }); }
+    }, [inViewExploration]);
 
+    useEffect(() => {
+        if (inViewPreprocessing) { preprocessingAnimation(preprocessingRef.current, { opacity: 1, x: 0 }); }
+        else { preprocessingAnimation(preprocessingRef.current, { opacity: 0, x: -200 }); }
+    }, [inViewPreprocessing]);
+
+    useEffect(() => {
+        if (inViewStructure) { structureAnimation(structureRef.current, { opacity: 1, x: 0 }); }
+        else { structureAnimation(structureRef.current, { opacity: 0, x: -200 }); }
+    }, [inViewStructure]);
+
+    useEffect(() => {
+        const obj = cleaningRef.current.childNodes;
+        if (inViewCleaning) {
+            cleaningAnimation(obj[0], { opacity: 1, x: 0 });
+            cleaningAnimation(obj[1], { opacity: 1, x: 0 }, { delay: 0.1 });
+            cleaningAnimation(obj[2], { opacity: 1, x: 0 }, { delay: 0.2 });
+            cleaningAnimation(obj[3], { opacity: 1, x: 0 }, { delay: 0.3 });
+            cleaningAnimation(obj[4], { opacity: 1, x: 0 }, { delay: 0.4 });
+        }
+        else {
+            cleaningAnimation(obj[0], { opacity: 0, x: -200 });
+            cleaningAnimation(obj[1], { opacity: 0, x: -200 });
+            cleaningAnimation(obj[2], { opacity: 0, x: -200 });
+            cleaningAnimation(obj[3], { opacity: 0, x: -200 });
+            cleaningAnimation(obj[4], { opacity: 0, x: -200 });
+        }
+    }, [inViewCleaning]);
+
+    useEffect(() => {
+        const obj = nlpRef.current.childNodes;
+        if (inViewNLP) {
+            nlpAnimation(obj[0], { opacity: 1, x: 0 });
+            nlpAnimation(obj[1], { opacity: 1, x: 0 }, { delay: 0.1 });
+            nlpAnimation(obj[2], { opacity: 1, x: 0 }, { delay: 0.2 });
+            nlpAnimation(obj[3], { opacity: 1, x: 0 }, { delay: 0.3 });
+        } else {
+            nlpAnimation(obj[0], { opacity: 0, x: -200 });
+            nlpAnimation(obj[1], { opacity: 0, x: -200 });
+            nlpAnimation(obj[2], { opacity: 0, x: -200 });
+            nlpAnimation(obj[3], { opacity: 0, x: -200 });
+        }
+    }, [inViewNLP]);
 
     return (
         <section className='min-h-screen mt-96'>
             <div className='flex flex-col justify-center items-center text-justify select-none'>
 
-                <motion.div className='font-bold font-A text-xblack text-6xl sm:text-[8vw] select-none'>DATA EXPLORATION</motion.div>
+                <motion.div ref={explorationRef} className='font-bold font-A text-xblack text-6xl sm:text-[8vw] select-none mb-20'>DATA EXPLORATION</motion.div>
 
-                <motion.div className='flex flex-col items-center font-A font-bold text-xwhite text-5xl border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 bg-xblack-2 mt-32'>PREPROCESSING</motion.div>
+                <motion.div ref={preprocessingRef} className={css_box_head}>
+                    <div className={css_box_title} >PREPROCESSING</div>
+                    <div className={css_box_desc}>Data preprocessing is essential in data science modeling as it improves data quality by addressing missing values, outliers, and errors. It enables feature engineering and transformation, making the data suitable for modeling. By normalizing, scaling, and handling categorical variables, preprocessing enhances the performance and reliability of machine learning models.</div>
+                </motion.div>
 
                 {/* STRUCTURE OF DATA */}
-                <motion.div className={css_box_b + ' mt-20'}>
-                    <div className='font-A font-bold text-xblack text-4xl select-none' >The Structure of Data</div>
+                <motion.div ref={structureRef} className={css_box_b}>
+                    <div className='font-A font-bold text-xblack text-4xl' >The Structure of Data</div>
                     <div>Our dataset contains structured data of multiple rows and columns. Each row represents a single tweet and each column represents a characteristic of a tweet</div>
                     <Datatable />
-                </motion.div>
+                </motion.div>;
 
 
                 {/* DATA CLEANING */}
-                <motion.div className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
-
-                    <div className={'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4 bg-xblack-2'}>
-                        <div className='font-bold font-A text-xwhite text-3xl sm:text-4xl select-none' >Cleaning our data</div>
-                        <div className='text-justify font-B text-xwhite'>Here are the multiple ways we cleaned our data using preprocessing techniques.</div>
+                <motion.div ref={cleaningRef} className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
+                    <div className={css_box_head}>
+                        <div className={css_box_title} >Cleaning our data</div>
+                        <div className={css_box_desc}>Here are the multiple ways we cleaned our data using preprocessing techniques.</div>
                     </div>
-
                     <div className={css_box_cln}>
                         <div className={css_title_cln}>Handling missing values</div>
                         <div>Only two columns contain missing values:
@@ -71,6 +128,7 @@ export default function Data() {
                             <ul className='ml-5'>
                                 <li className='mt-2'>• Dates are parsed to ISO8601 format string”.</li>
                                 <li className='mt-2'>• Locations are categorize to three type: "local", "international", and "unidentified"</li>
+                                <li className='mt-2'>• Tweets are translated to english</li>
                             </ul>
                         </div>
 
@@ -126,13 +184,13 @@ export default function Data() {
                             </tbody>
                         </table>
                     </div>
-                </motion.div>
+                </motion.div>;
 
                 {/* NLP PROCESSING */}
-                <motion.div className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
-                    <div className={'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4 bg-xblack-2'}>
-                        <div className='font-bold font-A text-xwhite text-3xl sm:text-4xl select-none' >Natural Language Processing</div>
-                        <div className='text-justify font-B text-xwhite'>To perform a topic analysis on the tweets collected, the following preprocessing techniques were performed on the tweet column:
+                <motion.div ref={nlpRef} className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
+                    <div className={css_box_head}>
+                        <div className={css_box_title}>Natural Language Processing</div>
+                        <div className={css_box_desc}>To perform a topic analysis on the tweets collected, the following preprocessing techniques were performed on the tweet column:
 
                             Converting tweets to string-type values
                             Replacing emojis with descriptions
@@ -146,8 +204,23 @@ export default function Data() {
                             Removing stop words
                             Translating tweets from Filipino to English</div>
                     </div>
+                    <div className={css_box_cln}>
+                        <div className={css_title_cln}>Tokenization and lower casing</div>
+                        <div>In order to analyze the tweet effectively, the tweet's words are converted to lowercase using Python's built-in lower() function. To convert the tweet into a list of individual words, NLTK's word_tokenize() function is applied to each tweet.
+                        </div>
+                    </div>
+                    <div className={css_box_cln}>
+                        <div className={css_title_cln}>Stop words removal</div>
+                        <div>In order to get the important words to help the model only consider key features of the tweet, stop words (e.g., articles like "the", pronouns like "they") are removed from the tweet. The stop words are removed using the stopwordsiso's stopwords function. For the removal of Tagalog and Bisaya stop words, the stop-word dictionaries found in digitalheir's cebuano-dictionary-js and genediazjr's stopwords-iso/stopwords-tl were used.
+                        </div>
+                    </div>
+                    <div className={css_box_cln}>
+                        <div className={css_title_cln}>Stemming and lemmatization</div>
+                        <div>In order to analyze the emergence of topics among the collected tweets better, stemming and lemmatization are performed. Stemming reduces words to their base form by removing suffixes. For example, the word "happiness" can be stemmed to "happi". On the other hand, lemmatization reduces words to their base form by taking into account the morphological context. For instance, the word "happiness" is lemmatized to "happy". NLTK's library PorterStemmer and WordNetLemmatizer are used for this step.
+                        </div>
+                    </div>
                 </motion.div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
-}
+};

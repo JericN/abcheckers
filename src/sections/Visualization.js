@@ -1,5 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, useAnimate } from 'framer-motion';
+import axios from 'axios';
+import Papa from 'papaparse';
 
 import followingBoxPlot from '../images/followingBoxPlot.png';
 import followerBoxPlot from '../images/followerBoxPlot.png';
@@ -9,8 +12,11 @@ import PieChartGrap from '../components/graphs/PieChartGraph';
 import BarChartGraph from '../components/graphs/BarChartGraph';
 import InteractiveTimeSeries from '../components/graphs/InteractiveTimeSeries';
 import Scatter3DGraph from '../components/graphs/Scatter3DGraph';
+import AccountTypeJoinedGraph from '../components/graphs/AccountTypeJoinedGraph';
 import HeatmapGraphA from '../components/graphs/HeatmapGraphA';
 import BoxPlotGraph from '../components/graphs/BoxPlotGraph';
+
+
 
 
 const accountTypeData = [
@@ -70,10 +76,37 @@ const captions = {
     qouteCount: 'Figure 8:',
     engagement: 'Figure 9: A 3d graph is worth a thoasand words',
     datePosted: 'Figure 10: A dynamic graph is worth a million words',
-    heatMap: 'Figure 11: This heatmap displays the correlation between the number of followers to the amount of likes, replies, and retweets. Spearman\'s method was used due the fact that the data was not normally distributed.'
+    AccountTypeJoinedDate: 'Figure 11:',
+    heatMap: 'Figure 12: This heatmap displays the correlation between the number of followers to the amount of likes, replies, and retweets. Spearman\'s method was used due the fact that the data was not normally distributed.'
 };
 
 export default function Visualization() {
+
+    const [visualTitleRef, visualTitleAnimation] = useAnimate();
+    const [demogRef, demogAnimation] = useAnimate();
+    const [ffRef, ffAnimation] = useAnimate();
+    const [tweetRef, tweetAnimation] = useAnimate();
+
+    const [timeSeriesRef, timeSeriesAnimation] = useAnimate();
+    const [correlationRef, correlationAnimation] = useAnimate();
+
+
+    const [csvData, setCsvData] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    'https://raw.githubusercontent.com/JericNarte/cs132-data/master/clean_data.csv'
+                );
+                const results = Papa.parse(response.data, { header: true }).data;
+                setCsvData(results);
+            } catch (error) {
+                console.error('Error reading CSV file:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <section className='min-h-screen select-none mt-96'>
             <div className='flex flex-col items-center w-full gap-10'>
@@ -87,7 +120,7 @@ export default function Visualization() {
                     <PieChartGrap data={accountTypeData} title={'Account Type Distribution'} caption={captions.accountType} />
                     <PieChartGrap data={locationData} title={'Account Location Distribution'} caption={captions.location} />
                 </div>
-                <BarChartGraph addClass={'max-w-[73rem] aspect-[2/1]'} height={'h-5/6'} data={joinedDate} title={'Account Joined Date'} caption={captions.joinedDate} xLabel={'Year'} yLabel={'Frequency'} />
+                <BarChartGraph addClass={'max-w-[73rem] aspect-[2/1]'} height={'h-5/6'} scale={'band'} data={joinedDate} title={'Account Joined Date'} caption={captions.joinedDate} xLabel={'Year'} yLabel={'Frequency'} />
 
                 {/* FOLLOWING AND FOLLOWERS */}
                 <motion.h2 className='font-bold font-A sm:text-5xl text-xwhite mt-20 flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10  bg-xblack-2'>ACCOUNT FOLLOWERS AND FOLLOWING</motion.h2>
@@ -101,16 +134,17 @@ export default function Visualization() {
                 <motion.h2 className='font-bold font-A sm:text-5xl text-xwhite flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10  bg-xblack-2' >TWEET AND CONTENT TYPE</motion.h2>
 
                 <div className='flex gap-5'>
-                    <BarChartGraph addClass={'max-w-xl aspect-[5/4]'} height={'h-2/3'} data={tweetTypeData} title={'Tweet Type Distribution'} caption={captions.tweetType} xLabel={'Tweet Type'} yLabel={'Tweet Count'} />
-                    <BarChartGraph addClass={'max-w-xl aspect-[5/4]'} height={'h-2/3'} data={contentTypeData} title={'Content Type Distribution'} caption={captions.contentType} xLabel={'Content Type'} yLabel={'Tweet Count'} />
+                    <BarChartGraph addClass={'max-w-xl aspect-[5/4]'} height={'h-2/3'} scale={'auto'} data={tweetTypeData} title={'Tweet Type Distribution'} caption={captions.tweetType} xLabel={'Tweet Type'} yLabel={'Tweet Count'} />
+                    <BarChartGraph addClass={'max-w-xl aspect-[5/4]'} height={'h-2/3'} scale={'auto'} data={contentTypeData} title={'Content Type Distribution'} caption={captions.contentType} xLabel={'Content Type'} yLabel={'Tweet Count'} />
                 </div>
                 <motion.h2 className='font-bold text-center font-A sm:text-5xl max-w-6xl mt-10'>How did people react?</motion.h2>
-                <Scatter3DGraph title={'3D Tweet Engagement Plot'} caption={captions.engagement} />
+                <Scatter3DGraph data={csvData} title={'3D Tweet Engagement Plot'} caption={captions.engagement} />
                 <motion.h2 className='text-2xl font-bold text-center font-A sm:text-5xl mt-10' >Time Series</motion.h2>
                 <InteractiveTimeSeries title={'Interactive Tweet Posted Plot'} caption={captions.datePosted} xLabel={'Date'} />
-
+                <AccountTypeJoinedGraph data={csvData} title={'Account Type Distribution'} caption={captions.joinedDate} />
                 <motion.h2 className='text-2xl font-bold text-center font-A sm:text-5xl mt-10' >Correlation</motion.h2>
-                <HeatmapGraphA title={'Correlation Heatmap'} caption={captions.heatMap} />
+                <HeatmapGraphA title={'Correlation Heatmap'} caption={captions.AccountTypeJoinedDate} />
+
             </div>
         </section>
 
