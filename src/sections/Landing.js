@@ -27,7 +27,7 @@ export default function Landing() {
       opacity: 1,
       x: 0,
       scale: 1,
-      transition: { type: "spring", stiffness: 250, damping: 15, mass: 1 },
+      transition: { type: "spring", stiffness: 250, damping: 15, mass: 1, delay: 1 },
     },
     tapping: {
       rotate: 720,
@@ -44,7 +44,7 @@ export default function Landing() {
     hidden: { y: 100 },
     visible: {
       y: 0,
-      transition: { delay: 5.5 },
+      transition: { delay: 6.5 },
     },
   };
 
@@ -54,7 +54,7 @@ export default function Landing() {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        delay: 5.8,
+        delay: 6.8,
       },
     },
   };
@@ -67,7 +67,7 @@ export default function Landing() {
         duration: 3,
         repeat: Infinity,
         repeatType: "reverse",
-        delay: i * 2 + 5,
+        delay: i * 2 + 6,
         repeatDelay: 7,
         ease: "easeOut",
       },
@@ -79,7 +79,7 @@ export default function Landing() {
     visible: {
       width: "100%",
       transition: {
-        delay: 6.5,
+        delay: 7.5,
         duration: 1,
       },
     },
@@ -96,13 +96,13 @@ export default function Landing() {
       rotateY: 360,
       y: 0,
       transition: {
-        delay: i + 7.5,
+        delay: i + 8.5,
       },
     }),
     active: (i) => ({
       rotateY: [0, 180, 0],
       transition: {
-        delay: i + 7.5,
+        delay: i + 8.5,
         repeatDelay: 10,
         repeat: Infinity,
         duration: 0.5,
@@ -117,7 +117,7 @@ export default function Landing() {
       opacity: 1,
       x: 0,
       transition: {
-        delay: i + 7.8,
+        delay: i + 8.8,
       },
     }),
   };
@@ -133,6 +133,7 @@ export default function Landing() {
           src={Logo}
           alt="[Logo]"
           variants={iconVariants}
+          layout
           transition={{
             type: "spring",
             stiffness: 190,
@@ -159,7 +160,7 @@ export default function Landing() {
           >
             <TypeAnimation
               sequence={[
-                1000,
+                2000,
                 "Hi!",
                 1000,
                 "Hi! We are not a game!",
@@ -173,25 +174,25 @@ export default function Landing() {
             />
             <TypeAnimation
               className={`${style_text_size_a} text-red-900 text-border`}
-              sequence={[4000, "A"]}
+              sequence={[5000, "A"]}
               wrapper="span"
               cursor={false}
             />
             <TypeAnimation
               className={`${style_text_size_a} text-violet-900 text-border`}
-              sequence={[4200, "B"]}
+              sequence={[5200, "B"]}
               wrapper="span"
               cursor={false}
             />
             <TypeAnimation
               className={`${style_text_size_a} text-cyan-900 text-border`}
-              sequence={[4400, "C"]}
+              sequence={[5400, "C"]}
               wrapper="span"
               cursor={false}
             />
             <TypeAnimation
               className={`${style_text_size_b}`}
-              sequence={[4700, "heckers!"]}
+              sequence={[5700, "heckers!"]}
               wrapper="span"
               cursor={false}
               speed={80}
