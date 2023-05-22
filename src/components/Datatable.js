@@ -19,7 +19,7 @@ export default function dataTable() {
         "likes": "1960",
         "replies": "538",
         "retweets": "198",
-        " quote tweets": "1013",
+        "quote tweets": "1013",
     };
     return (
         <table>

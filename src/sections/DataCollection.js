@@ -3,7 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 import { motion, useAnimate, AnimatePresence, useAnimationControls, useInView, delay } from "framer-motion";
 
 
-const ddelay = ms => new Promise(
+const waitFor = ms => new Promise(
     resolve => setTimeout(resolve, ms)
 );
 
@@ -18,19 +18,19 @@ export default function DataCollection() {
 
     async function startAnimation() {
         animateTitle('.class-container', { opacity: 1, y: 0 });
-        animateTitle('.class-title', { opacity: 1, y: 0 }, { delay: 0.1 });
+        animateTitle('.class-title', { opacity: 1, y: 0 });
         animateTitle('.class-desc', { opacity: 1, y: 0 }, { delay: 0.3 });
         const cards = titleRef.current.querySelector('.class-cards').childNodes;
         cards.forEach(async (card, index) => {
-            animateTitle(card, { opacity: 1, x: 0 }, { delay: 0.5 + index * 0.2 });
+            animateTitle(card, { opacity: 1, x: 0 }, { delay: 0.5 + index * 0.1 });
         });
-        animateData('div', { opacity: 1, y: 0 }, { delay: 1.5 });
+        animateData('div', { opacity: 1, y: 0 }, { delay: 1 });
     }
 
 
     async function endAnimation() {
         animateTitle('.class-container', { opacity: 0, y: 200 });
-        animateTitle('.class-title', { opacity: 0, y: -200 });
+        animateTitle('.class-title', { opacity: 0, y: 200 });
         animateTitle('.class-desc', { opacity: 0, y: 200 });
         const cards = titleRef.current.querySelector('.class-cards').childNodes;
         cards.forEach((card, index) => {
@@ -67,7 +67,7 @@ export default function DataCollection() {
 
         const obj = el.target;
         const id = el.target.id[4];
-        await ddelay(100);
+        await waitFor(100);
 
         animateCards(obj, { background: '#2F2F2F', scale: 1 }, { type: 'tween', duration: 0.2, ease: 'easeIn' });
         setCardFlipped((cardFlipped) => (cardFlipped[id] = false, [...cardFlipped]));

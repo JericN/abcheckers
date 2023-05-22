@@ -41,7 +41,7 @@ export default function Scatter3DGraph({ data, title, caption }) {
     const css_button = 'flex justify-center items-center font-B font-semibold text-sm border-[3px] rounded-xl border-xblack-3 select-none p-1 w-40';
 
     return (
-        <div className='w-full max-w-3xl border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center'>
+        <div className='w-[1000px] max-w-4xl border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center'>
             <div className='font-B color-B text-2xl font-bold mb-4'>{title}</div>
             <div className='flex gap-10'>
                 <div className={css_button + (dataType == 'raw' ? ' bg-xblack text-xwhite' : ' bg-xwhite text-xblack')} onClick={() => { setDataType('raw'); }}>Raw Data</div>
@@ -64,7 +64,7 @@ export default function Scatter3DGraph({ data, title, caption }) {
                     },
                 ]}
                 layout={{
-                    width: 500,
+                    width: 700,
                     height: 500,
                     margin: {
                         l: 0,

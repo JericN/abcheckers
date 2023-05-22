@@ -7,11 +7,11 @@ import Datatable from '../components/Datatable';
 export default function Data() {
 
     const css_box_head = 'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4 bg-xblack-2 mb-10';
-    const css_box_title = 'font-bold font-A text-xwhite text-3xl sm:text-4xl';
+    const css_box_title = 'font-bold font-A text-xwhite text-3xl sm:text-6xl';
     const css_box_desc = 'text-justify font-B text-xwhite';
 
     const css_box_b = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full py-10 px-10 gap-4';
-    const css_box_cln = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full pt-5 pb-8 px-10 gap-4';
+    const css_box_cln = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full pt-5 pb-8 px-7 gap-2';
     const css_title_cln = 'font-bold font-A text-2xl';
 
     const css_table_a = 'text-right p-1 px-4 border-2 bg-xblack-2 text-xwhite border-xwhite';
@@ -21,14 +21,14 @@ export default function Data() {
 
 
 
-    const [explorationRef, explorationAnimation] = useAnimate();
+    const [exploTitleRef, explorationAnimation] = useAnimate();
     const [preprocessingRef, preprocessingAnimation] = useAnimate();
     const [structureRef, structureAnimation] = useAnimate();
     const [cleaningRef, cleaningAnimation] = useAnimate();
     const [nlpRef, nlpAnimation] = useAnimate();
 
 
-    const inViewExploration = useInView(explorationRef, { margin: "-20% 0px -20% 0px" });
+    const inViewExploration = useInView(exploTitleRef, { margin: "-20% 0px -20% 0px" });
     const inViewPreprocessing = useInView(preprocessingRef, { margin: "-20% 0px -20% 0px" });
     const inViewStructure = useInView(structureRef, { margin: "-20% 0px -20% 0px" });
     const inViewCleaning = useInView(cleaningRef, { margin: "-20% 0px -20% 0px" });
@@ -36,8 +36,8 @@ export default function Data() {
 
 
     useEffect(() => {
-        if (inViewExploration) { explorationAnimation(explorationRef.current, { opacity: 1, x: 0 }); }
-        else { explorationAnimation(explorationRef.current, { opacity: 0, x: -200 }); }
+        if (inViewExploration) { explorationAnimation(exploTitleRef.current, { opacity: 1, x: 0 }); }
+        else { explorationAnimation(exploTitleRef.current, { opacity: 0, x: -200 }); }
     }, [inViewExploration]);
 
     useEffect(() => {
@@ -75,11 +75,13 @@ export default function Data() {
             nlpAnimation(obj[1], { opacity: 1, x: 0 }, { delay: 0.1 });
             nlpAnimation(obj[2], { opacity: 1, x: 0 }, { delay: 0.2 });
             nlpAnimation(obj[3], { opacity: 1, x: 0 }, { delay: 0.3 });
+            nlpAnimation(obj[4], { opacity: 1, x: 0 }, { delay: 0.4 });
         } else {
             nlpAnimation(obj[0], { opacity: 0, x: -200 });
             nlpAnimation(obj[1], { opacity: 0, x: -200 });
             nlpAnimation(obj[2], { opacity: 0, x: -200 });
             nlpAnimation(obj[3], { opacity: 0, x: -200 });
+            nlpAnimation(obj[4], { opacity: 0, x: -200 });
         }
     }, [inViewNLP]);
 
@@ -87,7 +89,7 @@ export default function Data() {
         <section className='min-h-screen mt-96'>
             <div className='flex flex-col justify-center items-center text-justify select-none'>
 
-                <motion.div ref={explorationRef} className='font-bold font-A text-xblack text-6xl sm:text-[8vw] select-none mb-20'>DATA EXPLORATION</motion.div>
+                <motion.div ref={exploTitleRef} className='font-bold font-A text-xblack text-6xl sm:text-[8vw] select-none mb-20'>DATA EXPLORATION</motion.div>
 
                 <motion.div ref={preprocessingRef} className={css_box_head}>
                     <div className={css_box_title} >PREPROCESSING</div>
@@ -148,7 +150,7 @@ export default function Data() {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className='mt-6'>Another change we implement is separating Tweet and Content Type into different columns. For example a tweet that has text and image and we labeled as rational and transactional is presented as:</div>
+                        <div className='mt-6'>Another change we implement is transforming Tweet and Content Type into numerical data. For example a tweet that has text and image and we labeled as rational and transactional is presented as 110000 and 101.</div>
                         <table>
                             <tbody>
                                 <tr>
@@ -190,33 +192,28 @@ export default function Data() {
                 <motion.div ref={nlpRef} className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
                     <div className={css_box_head}>
                         <div className={css_box_title}>Natural Language Processing</div>
-                        <div className={css_box_desc}>To perform a topic analysis on the tweets collected, the following preprocessing techniques were performed on the tweet column:
-
-                            Converting tweets to string-type values
-                            Replacing emojis with descriptions
-                            Lower-casing of words
-                            Removing URLs
-                            Removing special symbols @’s and #’s
-                            Removing alt-text-image descriptions
-                            Removing quotation marks and punctuations
-                            Removing newlines
-                            Removing whitespaces
-                            Removing stop words
-                            Translating tweets from Filipino to English</div>
+                        <div className={css_box_desc}>To perform a topic analysis on the tweets collected, the following preprocessing techniques were performed on the <b>translated tweet</b> column to ensure optimal data refinement, facilitating the extraction of meaningful insights and patterns from the tweet data.</div>
                     </div>
                     <div className={css_box_cln}>
-                        <div className={css_title_cln}>Tokenization and lower casing</div>
-                        <div>In order to analyze the tweet effectively, the tweet's words are converted to lowercase using Python's built-in lower() function. To convert the tweet into a list of individual words, NLTK's word_tokenize() function is applied to each tweet.
+                        <div className={css_title_cln}>Preprocessing</div>
+                        <div>
+                            The text underwent lower casing, where all characters were converted to lowercase to ensure uniformity and avoid duplication of words due to capitalization. Additionally, quotation marks, punctuations, and URLs were also removed to streamline the data and prepare it for further analysis.
                         </div>
                     </div>
                     <div className={css_box_cln}>
                         <div className={css_title_cln}>Stop words removal</div>
-                        <div>In order to get the important words to help the model only consider key features of the tweet, stop words (e.g., articles like "the", pronouns like "they") are removed from the tweet. The stop words are removed using the stopwordsiso's stopwords function. For the removal of Tagalog and Bisaya stop words, the stop-word dictionaries found in digitalheir's cebuano-dictionary-js and genediazjr's stopwords-iso/stopwords-tl were used.
+                        <div>Before tokenizing, we decided to remove the stop words first such as commonly used words to eliminate noise and focus on the more relevant content. For this, we imported the English stop words from the NLTK library and removed the stop words from each processed tweet in the data frame.
                         </div>
                     </div>
                     <div className={css_box_cln}>
+                        <div className={css_title_cln}>Tokenization</div>
+                        <div>In order to tokenize our dataset, we opted to utilize the TweetTokenizer module provided by the Natural Language Toolkit (NLTK) library. By employing this tool on our preprocessed tweets, we were able to effectively break them down into individual tokens, facilitating further analysis and processing.
+                        </div>
+                    </div>
+
+                    <div className={css_box_cln}>
                         <div className={css_title_cln}>Stemming and lemmatization</div>
-                        <div>In order to analyze the emergence of topics among the collected tweets better, stemming and lemmatization are performed. Stemming reduces words to their base form by removing suffixes. For example, the word "happiness" can be stemmed to "happi". On the other hand, lemmatization reduces words to their base form by taking into account the morphological context. For instance, the word "happiness" is lemmatized to "happy". NLTK's library PorterStemmer and WordNetLemmatizer are used for this step.
+                        <div>The SnowballStemmer was from NLTK library was for stemming the tweets, and WordNetLemmatizer from the same library was used for lemmitzation. Please note that stemming may cause the word to be incorrect (e.g., studies may turn into studi). Lemmatization on the other hand reduces the word to its base form correctly (e.g., programming becomes program), but it may not work on all the words (e.g., programmer may stay as programmer rather than transform into program).
                         </div>
                     </div>
                 </motion.div>

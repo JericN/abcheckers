@@ -31,7 +31,6 @@ export default function AccountTypeJoinedGraph({ data, title, caption }) {
 
         var min = newDate.reduce(function (a, b) { return a < b ? a : b; });
         var max = newDate.reduce(function (a, b) { return a > b ? a : b; });
-        console.log(min, max);
         min = min.getFullYear();
         max = max.getFullYear();
         const groupData = {};
@@ -55,8 +54,6 @@ export default function AccountTypeJoinedGraph({ data, title, caption }) {
         }
         setFinalData(finalData);
     }
-
-    console.log(finalData);
 
     return (
         <div className={'max-w-6xl w-full border-4 aspect-[2/1] border-xblack-3 p-5 rounded-3xl flex flex-col items-center'}>
