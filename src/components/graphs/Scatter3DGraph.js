@@ -27,9 +27,9 @@ export default function Scatter3DGraph({ data, title, caption }) {
             const like = data[i]['likes'];
             const rep = data[i]['replies'];
             const ret = data[i]['retweets'];
-            const zlike = data[i]['z-likes'];
-            const zrep = data[i]['z-replies'];
-            const zret = data[i]['z-retweets'];
+            const zlike = data[i]['zLikes'];
+            const zrep = data[i]['zReplies'];
+            const zret = data[i]['zRetweets'];
             if (isOutliers && (Math.abs(zlike) > 3 || Math.abs(zrep) > 3 || Math.abs(zret) > 3)) continue;
             retData.likes.push(raw ? like : zlike);
             retData.replies.push(raw ? rep : zrep);

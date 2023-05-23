@@ -102,7 +102,7 @@ export default function Visualization() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://raw.githubusercontent.com/JericNarte/cs132-data/master/public_dataset.csv"
+          "https://raw.githubusercontent.com/JericNarte/cs132-data/master/processed_dateset.csv"
         );
         const results = Papa.parse(response.data, { header: true }).data;
         setCsvData(results);
