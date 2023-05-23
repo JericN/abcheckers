@@ -108,7 +108,7 @@ export default function DataCollection() {
     );
   }
 
-  function temp() {}
+  function temp() { }
 
   return (
     <section className="min-h-screen my-44">
@@ -168,7 +168,7 @@ export default function DataCollection() {
             whileTap={{ scale: 0.9 }}
             onClick={() => {
               window.open(
-                "https://github.com/JericNarte/cs132-data/blob/master/full_clean_data.csv",
+                "https://raw.githubusercontent.com/JericNarte/cs132-data/master/public_dataset.csv",
                 "_blank"
               );
             }}

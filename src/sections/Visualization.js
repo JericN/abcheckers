@@ -102,7 +102,7 @@ export default function Visualization() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://raw.githubusercontent.com/JericNarte/cs132-data/master/econ_data.csv"
+          "https://raw.githubusercontent.com/JericNarte/cs132-data/master/public_dataset.csv"
         );
         const results = Papa.parse(response.data, { header: true }).data;
         setCsvData(results);
@@ -290,6 +290,12 @@ export default function Visualization() {
     }
     run();
   }, [inViewCorrelation]);
+
+
+
+
+
+
 
   return (
     <section className="min-h-screen select-none mt-96">

@@ -136,7 +136,7 @@ export default function Data() {
             The Structure of Data
           </div>
           <div>
-            Our dataset contains structured data of multiple rows and columns.
+            The dataset we collected contains structured data of multiple rows and columns.
             Each row represents a single tweet and each column represents a
             characteristic of a tweet. A sample data is shown below:
           </div>
@@ -150,7 +150,7 @@ export default function Data() {
           <div className={css_box_head}>
             <div className={css_box_title}>Cleaning our data</div>
             <div className={css_box_desc}>
-              Here are the multiple ways we cleaned our data using preprocessing
+              Before we begin, the dataset we will be using are anonymized. Here are the multiple ways we cleaned our data using preprocessing
               techniques.
             </div>
           </div>
