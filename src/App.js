@@ -7,7 +7,7 @@ import Landing from './pages/01-Landing';
 import Overview from './pages/02-Overview';
 import Problem from './pages/03-Problem';
 import DataCollection from './pages/04-DataCollection';
-import DataProcessing from './pages/DataProcessing';
+import DataProcessing from './pages/05-DataProcessing';
 import Visualization from './pages/Visualization';
 
 import Team from './pages/Team';
@@ -38,12 +38,12 @@ function App() {
 	return (
 		<>
 			<Header />
-			<motion.div animate={globalControl} className='flex flex-col items-center'>
+			<motion.div animate={globalControl} className='flex flex-col items-center gap-56'>
 				<Landing />
 				<Overview overviewRef={overviewRef} animateOverview={animateOverview} />
 				<Problem problemRef={problemRef} animateProblem={animateProblem} />
 				<DataCollection />
-				{/* <DataProcessing /> */}
+				<DataProcessing />
 				{/* <Visualization /> */}
 				{/* <Team /> */}
 			</motion.div>

@@ -11,6 +11,10 @@
     .responsive-section {
         @apply min-h-screen max-w-sm sm:max-w-screen-sm lg:max-w-screen-lg 2k:max-w-screen-2k;
     }
+    /* .responsive-box {
+        @apply max-w-sm sm:w lg:max-w-screen-md 2k:max-w-screen-2k;
+    } */
+
 
     .responsive-text-xs{
         @apply text-xs sm:text-lg lg:text-lg 2k:text-2xl

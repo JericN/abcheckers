@@ -1,11 +1,22 @@
 import { motion } from 'framer-motion';
 
-export default function Template({ index, content, cardFlipped, openCard, closeCard }) {
+const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default function Template({ index, content, cardFlipped, setCardFlipped, animateDatacol }) {
+	async function openCard(el) {
+		animateDatacol(el.target, { background: '#F0F0F0', scale: 1.01 });
+		setCardFlipped((cardFlipped) => ((cardFlipped[index] = true), [...cardFlipped]));
+	}
+
+	async function closeCard(el) {
+		await waitFor(50);
+		animateDatacol(el.target, { background: '#2F2F2F', scale: 1 });
+		setCardFlipped((cardFlipped) => ((cardFlipped[index] = false), [...cardFlipped]));
+	}
 	return (
 		<motion.div
-			id={'card' + index}
 			className={
-				'flex justify-center items-center text-justify border-4 rounded-2xl border-xblack-3 max-w-3xl w-[1000px] h-[120px] px-10 select-none' +
+				'center-column text-justify h-28 sm:h-36 px-6 sm:px-10 border-4 rounded-2xl border-xblack-3 select-none' +
 				(cardFlipped[index] ? ' bg-xwhite' : ' bg-xblack-2')
 			}
 			layout
@@ -13,9 +24,9 @@ export default function Template({ index, content, cardFlipped, openCard, closeC
 			onHoverEnd={closeCard}
 		>
 			{cardFlipped[index] ? (
-				<div className={'font-B text-lg pointer-events-none text-xblack'}>{content.desc}</div>
+				<div className={'responsive-text-sm font-B pointer-events-none text-xblack'}>{content.desc}</div>
 			) : (
-				<div className={'font-A font-bold text-3xl pointer-events-none text-xwhite'}>{content.title}</div>
+				<div className={'responsive-text-md font-A font-bold pointer-events-none text-xwhite'}>{content.title}</div>
 			)}
 		</motion.div>
 	);

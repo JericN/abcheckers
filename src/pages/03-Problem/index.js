@@ -21,12 +21,12 @@ export default function Problem({ problemRef, animateProblem }) {
 		const title = problemRef.current.childNodes[0];
 		const nodes = problemRef.current.childNodes[1].childNodes;
 		if (isInView) {
-			animateProblem(title, { opacity: 1, y: 0 });
+			animateProblem(title, { opacity: 1, x: 0 });
 			for (let i = 0; i < nodes.length; i++) {
 				animateProblem(nodes[i], { opacity: 1, x: 0, y: 0 }, { delay: 0.3 + i * 0.1 });
 			}
 		} else {
-			animateProblem(title, { opacity: 0, y: -100 });
+			animateProblem(title, { opacity: 0, x: -100 });
 			animateProblem(nodes[0], { opacity: 0, x: -100, y: 0 });
 			animateProblem(nodes[1], { opacity: 0, x: 0, y: -100 });
 			animateProblem(nodes[2], { opacity: 0, x: 0, y: 100 });
