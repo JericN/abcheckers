@@ -173,7 +173,6 @@ export default function DataCollection() {
               );
             }}
           >
-            {" "}
             See our Data
           </motion.div>
         </motion.div>

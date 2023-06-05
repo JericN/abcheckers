@@ -1,36 +1,21 @@
-import React, { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  useAnimation,
-  useAnimationControls,
-  useTransform,
-  useMotionValue,
-  useInView,
-  useScroll,
-  useAnimate,
-} from "framer-motion";
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useAnimation, useAnimationControls, useTransform, useMotionValue, useInView, useScroll, useAnimate } from 'framer-motion';
 
-import Datatable from "../components/Datatable";
+import Datatable from '../components/Datatable';
 
 export default function Data() {
-  const css_box_head =
-    "flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4 bg-xblack-2 mb-10";
-  const css_box_title = "font-bold font-A text-xwhite text-3xl sm:text-6xl";
-  const css_box_desc = "text-justify font-B text-xwhite";
+  const css_box_head = 'flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-6xl w-full py-5 px-10 gap-4 bg-xblack-2 mb-10';
+  const css_box_title = 'font-bold font-A text-xwhite text-3xl sm:text-6xl';
+  const css_box_desc = 'text-justify font-B text-xwhite';
 
-  const css_box_b =
-    "font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full py-10 px-10 gap-4";
-  const css_box_cln =
-    "font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full pt-5 pb-8 px-7 gap-2";
-  const css_title_cln = "font-bold font-A text-2xl";
+  const css_box_b = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full py-10 px-10 gap-4';
+  const css_box_cln = 'font-B flex flex-col items-center border-4 rounded-2xl border-xblack-3 max-w-3xl w-full pt-5 pb-8 px-7 gap-2';
+  const css_title_cln = 'font-bold font-A text-2xl';
 
-  const css_table_a =
-    "text-right p-1 px-4 border-2 bg-xblack-2 text-xwhite border-xwhite";
-  const css_table_b = "border-2 px-2 border-xwhite border-b-xblack-3";
-  const css_table_c =
-    "text-center p-1 px-4 border-2 bg-xblack-2 text-xwhite border-xwhite";
-  const css_table_d =
-    "text-center border-2 px-2 border-xwhite border-b-xblack-3";
+  const css_table_a = 'text-right p-1 px-4 border-2 bg-xblack-2 text-xwhite border-xwhite';
+  const css_table_b = 'border-2 px-2 border-xwhite border-b-xblack-3';
+  const css_table_c = 'text-center p-1 px-4 border-2 bg-xblack-2 text-xwhite border-xwhite';
+  const css_table_d = 'text-center border-2 px-2 border-xwhite border-b-xblack-3';
 
   const [exploTitleRef, explorationAnimation] = useAnimate();
   const [preprocessingRef, preprocessingAnimation] = useAnimate();
@@ -39,18 +24,18 @@ export default function Data() {
   const [nlpRef, nlpAnimation] = useAnimate();
 
   const inViewExploration = useInView(exploTitleRef, {
-    margin: "-20% 0px -20% 0px",
+    margin: '-20% 0px -20% 0px',
   });
   const inViewPreprocessing = useInView(preprocessingRef, {
-    margin: "-20% 0px -20% 0px",
+    margin: '-20% 0px -20% 0px',
   });
   const inViewStructure = useInView(structureRef, {
-    margin: "-20% 0px -20% 0px",
+    margin: '-20% 0px -20% 0px',
   });
   const inViewCleaning = useInView(cleaningRef, {
-    margin: "-20% 0px -20% 0px",
+    margin: '-20% 0px -20% 0px',
   });
-  const inViewNLP = useInView(nlpRef, { margin: "-20% 0px -20% 0px" });
+  const inViewNLP = useInView(nlpRef, { margin: '-20% 0px -20% 0px' });
 
   useEffect(() => {
     if (inViewExploration) {
@@ -111,42 +96,30 @@ export default function Data() {
   }, [inViewNLP]);
 
   return (
-    <section className="min-h-screen mt-96">
-      <div className="flex flex-col justify-center items-center text-justify select-none">
-        <motion.div
-          ref={exploTitleRef}
-          className="font-bold font-A text-xblack text-6xl sm:text-[8vw] select-none mb-20"
-        >
+    <section className='min-h-screen mt-96'>
+      <div className='flex flex-col justify-center items-center text-justify select-none'>
+        <motion.div ref={exploTitleRef} className='font-bold font-A text-xblack text-6xl sm:text-[8vw] select-none mb-20'>
           DATA EXPLORATION
         </motion.div>
         <motion.div ref={preprocessingRef} className={css_box_head}>
           <div className={css_box_title}>PREPROCESSING</div>
           <div className={css_box_desc}>
-            Data preprocessing is essential in data science modeling as it
-            improves data quality by addressing missing values, outliers, and
-            errors. It enables feature engineering and transformation, making
-            the data suitable for modeling. By normalizing, scaling, and
-            handling categorical variables, preprocessing enhances the
-            performance and reliability of machine learning models.
+            Data preprocessing is essential in data science modeling as it improves data quality by addressing missing values, outliers, and errors.
+            It enables feature engineering and transformation, making the data suitable for modeling. By normalizing, scaling, and handling
+            categorical variables, preprocessing enhances the performance and reliability of machine learning models.
           </div>
         </motion.div>
         {/* STRUCTURE OF DATA */}
         <motion.div ref={structureRef} className={css_box_b}>
-          <div className="font-A font-bold text-xblack text-4xl">
-            The Structure of Data
-          </div>
+          <div className='font-A font-bold text-xblack text-4xl'>The Structure of Data</div>
           <div>
-            The dataset we collected contains structured data of multiple rows and columns.
-            Each row represents a single tweet and each column represents a
-            characteristic of a tweet. A sample data is shown below:
+            The dataset we collected contains structured data of multiple rows and columns. Each row represents a single tweet and each column
+            represents a characteristic of a tweet. A sample data is shown below:
           </div>
           <Datatable />
         </motion.div>
         {/* DATA CLEANING */}
-        <motion.div
-          ref={cleaningRef}
-          className="flex flex-col justify-center items-center gap-4 w-full mt-56"
-        >
+        <motion.div ref={cleaningRef} className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
           <div className={css_box_head}>
             <div className={css_box_title}>Cleaning our data</div>
             <div className={css_box_desc}>
@@ -158,72 +131,49 @@ export default function Data() {
             <div className={css_title_cln}>Handling missing values</div>
             <div>
               Only two columns contained missing values:
-              <ul className="ml-5">
-                <li className="mt-2">
-                  • For the Account Bio column, we replaced them with empty
-                  strings.
-                </li>
-                <li className="mt-2">
-                  • For the Location column, we replaced them with
-                  “Unidentified”.
-                </li>
+              <ul className='ml-5'>
+                <li className='mt-2'>• For the Account Bio column, we replaced them with empty strings.</li>
+                <li className='mt-2'>• For the Location column, we replaced them with “Unidentified”.</li>
               </ul>
             </div>
           </div>
           <div className={css_box_cln}>
             <div className={css_title_cln}>Handling outliers</div>
             <div>
-              We decided to find the outliers using both Z-score and Tukey's
-              Fences. We used the latter for heavily skewed dataset since a
-              potential problem of using Z-score is that the outliers may
-              increase the standard deviation of the sample size. However, we're
-              not going to remove these outliers as it may provide rich context
-              to our study.
+              We decided to find the outliers using both Z-score and Tukey's Fences. We used the latter for heavily skewed dataset since a
+              potential problem of using Z-score is that the outliers may increase the standard deviation of the sample size. However, we're not
+              going to remove these outliers as it may provide rich context to our study.
             </div>
           </div>
           <div className={css_box_cln}>
             <div className={css_title_cln}>Ensuring formatting consistency</div>
             <div>
               For the following categories, we decided to format the data:
-              <ul className="ml-5">
-                <li className="mt-2">
-                  • Joined and Date Posted are parsed to ISO8601 format string.
-                </li>
-                <li className="mt-2">
-                  • Location is categorized into three types: "Local",
-                  "International", and "Unidentified"
-                </li>
-                <li className="mt-2">• Tweet is translated to English.</li>
+              <ul className='ml-5'>
+                <li className='mt-2'>• Joined and Date Posted are parsed to ISO8601 format string.</li>
+                <li className='mt-2'>• Location is categorized into three types: "Local", "International", and "Unidentified"</li>
+                <li className='mt-2'>• Tweet is translated to English.</li>
               </ul>
             </div>
           </div>
           <div className={css_box_cln}>
             <div className={css_title_cln}>Categorical data encoding</div>
-            <div>
-              To make data processing easier, we decided to encode the following
-              categorical data:
-            </div>
+            <div>To make data processing easier, we decided to encode the following categorical data:</div>
             <table>
               <tbody>
                 <tr>
                   <td className={css_table_a}>Account Type</td>
-                  <td className={css_table_b}>
-                    0: Identified, 1: Media, 2: Anonymous
-                  </td>
+                  <td className={css_table_b}>0: Identified, 1: Media, 2: Anonymous</td>
                 </tr>
                 <tr>
                   <td className={css_table_a}>Location</td>
-                  <td className={css_table_b}>
-                    0: Local, 1: International, 2: Unidentified
-                  </td>
+                  <td className={css_table_b}>0: Local, 1: International, 2: Unidentified</td>
                 </tr>
               </tbody>
             </table>
-            <div className="mt-6">
-              Another change we implemented is transforming Tweet Type and
-              Content Type into numerical data. For example, a tweet that has
-              text and image and labeled as rational and transactional is
-              presented as 110000 and 101.
+            <div className='mt-6'>
+              Another change we implemented is transforming Tweet Type and Content Type into numerical data. For example, a tweet that has text
+              and image and labeled as rational and transactional is presented as 110000 and 101.
             </div>
             <table>
               <tbody>
@@ -262,63 +212,64 @@ export default function Data() {
           </div>
         </motion.div>
         {/* NLP PROCESSING */}
-        <motion.div
-          ref={nlpRef}
-          className="flex flex-col justify-center items-center gap-4 w-full mt-56"
-        >
+        <motion.div ref={nlpRef} className='flex flex-col justify-center items-center gap-4 w-full mt-56'>
           <div className={css_box_head}>
             <div className={css_box_title}>Natural Language Processing</div>
             <div className={css_box_desc}>
-              To perform a topic analysis on the tweets collected, the following
-              preprocessing techniques were performed on the{" "}
-              <b>translated tweet</b> column to ensure optimal data refinement,
-              facilitating the extraction of meaningful insights and patterns
+              To perform a topic analysis on the tweets collected, the following preprocessing techniques were performed on the{' '}
+              <b>translated tweet</b> column to ensure optimal data refinement, facilitating the extraction of meaningful insights and patterns
               from the tweet data.
             </div>
           </div>
           <div className={css_box_cln}>
             <div className={css_title_cln}>Preprocessing</div>
             <div>
-              The tweets were converted to lower case to ensure uniformity and
-              avoid duplication of words due to capitalization. Additionally,
-              quotation marks, punctuations, and URLs were also removed to
-              streamline the data and prepare it for further analysis.
+              Before tokenizing, we decided to convert the tweets to lower case to ensure uniformity and avoid duplication of words due to
+              capitalization. Also, we desire the context provided by emoji so instead of removing, we opted to transform them to their
+              descriptive word. Finally, punctuation marks, and URLs were also removed to streamline the data and prepare it for further analysis.
             </div>
           </div>
           <div className={css_box_cln}>
             <div className={css_title_cln}>Stop Words Removal</div>
             <div>
-              Before tokenizing, we decided to remove the stop words first (e.g.
-              is, are, the) to eliminate noise and focus on the more relevant
-              content. For this, we imported the English stop words from the
-              Natural Language Toolkit (NLTK) library and removed the stop words
-              from each processed tweet in the dataset.
+              Next we remove the stop words first (e.g. is, are, the) to eliminate noise and focus on the more relevant content. For this, we
+              imported the English stop words from the Natural Language Toolkit (NLTK) library and removed the stop words from each processed
+              tweet in the dataset.
             </div>
           </div>
           <div className={css_box_cln}>
             <div className={css_title_cln}>Tokenization</div>
             <div>
-              In order to tokenize the tweets, we opted to utilize the
-              TweetTokenizer module provided by the NLTK library. By employing
-              this tool on our preprocessed tweets, we were able to effectively
-              break them down into individual tokens, facilitating further
-              analysis and processing.
+              In order to tokenize the tweets, we opted to utilize the TweetTokenizer module provided by the NLTK library. By employing this tool
+              on our preprocessed tweets, we were able to effectively break them down into individual tokens, facilitating further analysis and
+              processing.
             </div>
           </div>
 
           <div className={css_box_cln}>
             <div className={css_title_cln}>Stemming and Lemmatization</div>
             <div>
-              The SnowballStemmer from the NLTK library was used for stemming
-              the tweets, and WordNetLemmatizer from the same library was used
-              for lemmatization. Please note that stemming may cause the word to
-              be incorrect (e.g., studies may turn into studi). Lemmatization,
-              on the other hand, reduces the word to its base form correctly
-              (e.g., programming becomes program), but it may not work on all
-              the words (e.g., programmer may stay as programmer rather than
-              transform into program).
+              The SnowballStemmer from the NLTK library was used for stemming the tweets, and WordNetLemmatizer from the same library was used for
+              lemmatization. Please note that stemming may cause the word to be incorrect (e.g., studies may turn into studi). Lemmatization, on
+              the other hand, reduces the word to its base form correctly (e.g., programming becomes program), but it may not work on all the
+              words (e.g., programmer may stay as programmer rather than transform into program).
             </div>
           </div>
+          <motion.div
+            className='flex font-B justify-center font-bold text-xl border-4 rounded-2xl border-xblack-3 p-2 px-10'
+            initial={{ background: '#2F2F2F', color: '#F0F0F0' }}
+            whileHover={{
+              scale: 1.07,
+              background: '#F0F0F0',
+              color: '#0F0F0F',
+            }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => {
+              window.open('https://colab.research.google.com/drive/19dMbffOElGYK9K-7W2CJzRtiOjbXZ02S?usp=sharing', '_blank');
+            }}
+          >
+            Check our code!
+          </motion.div>
         </motion.div>
       </div>
     </section>

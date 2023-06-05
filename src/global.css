@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+
+@layer components {
+    .responsive-section {
+        @apply min-h-screen max-w-sm sm:max-w-screen-sm lg:max-w-screen-lg 2k:max-w-screen-2k;
+    }
+
+    .center-column {
+        @apply flex flex-col justify-center items-center;
+    }
+}
+
 
 :root {
     /* Amount text */
