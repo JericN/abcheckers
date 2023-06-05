@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-import OverviewItem from '../components/OverviewItem';
+import Template from './Template';
 
 export default function Overview({ overviewRef, animateOverview }) {
 	const isInView = useInView(overviewRef, {
@@ -60,7 +58,7 @@ export default function Overview({ overviewRef, animateOverview }) {
 	return (
 		<section ref={overviewRef} className='responsive-section center-column text-xwhite'>
 			<motion.h2
-				className='mb-16 font-bold text-5xl sm:text-7xl select-none border-b-4 border-b-transparent'
+				className='responsive-text-xl font-bold mb-10 border-b-4 border-b-transparent select-none'
 				drag
 				dragSnapToOrigin='true'
 				dragTransition={{
@@ -71,10 +69,9 @@ export default function Overview({ overviewRef, animateOverview }) {
 			>
 				ABOUT OUR STUDY
 			</motion.h2>
-
-			<motion.div className='grid lg:grid-cols-2t justify-items-center pr-0 lg:pr-10'>
+			<motion.div className='grid lg:grid-cols-2t justify-items-center'>
 				{content.map((item, i) => {
-					return <OverviewItem item={content[i]} hiddenEgg={hiddenEgg[i]} dragStart={dragStart} dragEnd={dragEnd} />;
+					return <Template item={content[i]} hiddenEgg={hiddenEgg[i]} dragStart={dragStart} dragEnd={dragEnd} />;
 				})}
 			</motion.div>
 		</section>
@@ -85,19 +82,19 @@ const content = [
 	{
 		title: 'MOTIVATION',
 		description:
-			"The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation.",
+			"The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation.",
 		hidden: 'Money',
 	},
 	{
 		title: 'SOLUTION',
 		description:
-			"The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation.",
+			"The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation.",
 		hidden: 'Migration',
 	},
 	{
 		title: 'PROBLEM',
 		description:
-			"The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation.",
+			"The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation. The tweets that contain mis/disinformation have no effect regarding the people's views on the government when it comes to our weakening peso and rising inflation.",
 		hidden: 'BBM',
 	},
 ];

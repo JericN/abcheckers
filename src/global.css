@@ -12,6 +12,23 @@
         @apply min-h-screen max-w-sm sm:max-w-screen-sm lg:max-w-screen-lg 2k:max-w-screen-2k;
     }
 
+    .responsive-text-xs{
+        @apply text-xs sm:text-lg lg:text-lg 2k:text-2xl
+    }
+    .responsive-text-sm {
+        @apply text-xs sm:text-xl lg:text-xl 2k:text-2xl
+    }
+    
+    .responsive-text-md {
+        @apply text-xl sm:text-3xl lg:text-3xl 2k:text-4xl
+    }
+    .responsive-text-lg {
+        @apply text-2xl sm:text-5xl lg:text-5xl 2k:text-6xl
+    }
+    .responsive-text-xl {
+        @apply text-3xl sm:text-6xl lg:text-6xl 2k:text-7xl
+    }
+
     .center-column {
         @apply flex flex-col justify-center items-center;
     }

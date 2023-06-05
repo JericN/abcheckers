@@ -2,15 +2,15 @@ import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView, useAnimationControls, useAnimate } from 'framer-motion';
 
-import Header from './sections/Header';
-import Landing from './sections/Landing';
-import Overview from './sections/Overview';
-import Problem from './sections/Problem';
-import DataCollection from './sections/DataCollection';
-import DataProcessing from './sections/DataProcessing';
-import Visualization from './sections/Visualization';
+import Header from './pages/Header';
+import Landing from './pages/01-Landing';
+import Overview from './pages/02-Overview';
+import Problem from './pages/03-Problem';
+import DataCollection from './pages/04-DataCollection';
+import DataProcessing from './pages/DataProcessing';
+import Visualization from './pages/Visualization';
 
-import Team from './sections/Team';
+import Team from './pages/Team';
 
 function App() {
 	const [background, setbackground] = useState(false);
@@ -42,10 +42,10 @@ function App() {
 				<Landing />
 				<Overview overviewRef={overviewRef} animateOverview={animateOverview} />
 				<Problem problemRef={problemRef} animateProblem={animateProblem} />
-				{/* <DataCollection />
-				<DataProcessing />
-				<Visualization />
-				<Team /> */}
+				<DataCollection />
+				{/* <DataProcessing /> */}
+				{/* <Visualization /> */}
+				{/* <Team /> */}
 			</motion.div>
 		</>
 	);

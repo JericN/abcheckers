@@ -8,10 +8,10 @@ module.exports = {
 			},
 			maxWidth: {
 				'8xl': '100rem',
-				'screen-2k': '120rem',
+				'screen-2k': '110rem',
 			},
 			gridTemplateColumns: {
-				'2t': '200px auto',
+				'2t': 'auto auto',
 			},
 			colors: {
 				xwhite: {

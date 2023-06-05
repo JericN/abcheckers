@@ -1,11 +1,9 @@
-import React from 'react';
-import { useRef } from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
-import Logo from '../images/logo.png';
-import Chip_white from '../images/chip_white.png';
-import Chip_black from '../images/chip_black.png';
+import Logo from '../../images/logo.png';
+import Chip_white from '../../images/chip_white.png';
+import Chip_black from '../../images/chip_black.png';
 
 // Spin only if moving
 

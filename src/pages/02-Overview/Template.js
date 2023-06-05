@@ -1,14 +1,10 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
-const css_label = 'font-A font-bold text-3xl text-center lg:text-right w-44 mt-4 select-none';
-const css_desc = 'font-B text-md text-justify p-4 mb-10 border-2 border-transparent rounded-lg select-none';
-
-export default function OverviewItem({ item, hiddenEgg, dragStart, dragEnd }) {
+export default function Item({ item, hiddenEgg, dragStart, dragEnd }) {
 	return (
 		<>
 			<motion.h3
-				className={css_label}
+				className='responsive-text-md font-A font-bold text-center lg:text-right w-44 2k:w-72 pt-4 mr-4 select-none'
 				drag
 				dragSnapToOrigin='true'
 				dragTransition={{
@@ -21,7 +17,7 @@ export default function OverviewItem({ item, hiddenEgg, dragStart, dragEnd }) {
 				{item.title}
 			</motion.h3>
 			<motion.p
-				className={css_desc}
+				className='responsive-text-sm font-B text-justify p-4 mb-4 border-2 border-transparent rounded-lg select-none'
 				layout
 				whileHover={{
 					scale: 1.01,
