@@ -241,7 +241,7 @@ export default function Visualization() {
 	}, [inViewCorrelation]);
 
 	return (
-		<section className='min-h-screen select-none mt-96'>
+		<section className='responsive-section mt-96'>
 			<div className='flex flex-col items-center w-full gap-10'>
 				<motion.h2 ref={visualTitleRef} className={css_title_main}>
 					DATA VISUALIZATION
@@ -250,7 +250,7 @@ export default function Visualization() {
 				{/* ACCOUNT SECTION */}
 				<motion.div ref={demogRef} className={css_subsection}>
 					<motion.h2 className={css_title_sub}>Let us look at the demography of our data.</motion.h2>
-					<div className='flex gap-4'>
+					<div className='flex flex-col lg:flex-row gap-4'>
 						<PieChartGrap data={accountTypeData} title={'Account Type Distribution'} caption={captions.accountType} />
 						<PieChartGrap data={locationData} title={'Account Location Distribution'} caption={captions.location} />
 					</div>
@@ -269,7 +269,7 @@ export default function Visualization() {
 				{/* FOLLOWING AND FOLLOWERS */}
 				<motion.div ref={ffRef} className={css_subsection}>
 					<motion.h2 className={css_box_sub}>ACCOUNT FOLLOWERS AND FOLLOWING</motion.h2>
-					<div className='flex gap-4'>
+					<div className='flex flex-col lg:flex-row gap-4'>
 						<BoxPlotGraph src={followingBoxPlot} title={'User Following Count Box Plot'} caption={captions.following} />
 						<BoxPlotGraph src={followerBoxPlot} title={'User Follower Count Box Plot'} caption={captions.follower} />
 					</div>
@@ -279,7 +279,7 @@ export default function Visualization() {
 				<motion.div ref={tweetRef} className={css_subsection}>
 					<motion.h2 className={css_title_sub}>Now, how about the tweets we've gathered?</motion.h2>
 					<motion.h2 className={css_box_sub}>TWEET AND CONTENT TYPE</motion.h2>
-					<div className='flex gap-4'>
+					<div className='flex flex-col lg:flex-row gap-4'>
 						<BarChartGraph
 							addClass={'max-w-xl aspect-[5/4]'}
 							height={'h-2/3'}

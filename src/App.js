@@ -38,7 +38,7 @@ function App() {
 	return (
 		<>
 			<Header />
-			<motion.div animate={globalControl} className='flex flex-col items-center gap-96 text-xblack'>
+			<motion.div animate={globalControl} className='flex flex-col items-center gap-96 text-xblack overflow-x-hidden'>
 				<Landing />
 				<Overview overviewRef={overviewRef} animateOverview={animateOverview} />
 				<Problem problemRef={problemRef} animateProblem={animateProblem} />

@@ -14,6 +14,9 @@
     .responsive-box {
         @apply w-[24rem] sm:w-[46rem] lg:w-[46rem] 2k:w-[60rem];
     }
+    .responsive-widebox {
+        @apply w-[24rem] sm:w-[36rem] lg:w-[74rem] 2k:w-[92rem];
+    }
 
 
     .responsive-text-xs{
