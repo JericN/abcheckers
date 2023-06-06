@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function Button({ label, onClick }) {
 	return (
 		<motion.div
-			className='flex justify-center font-bold text-lg border-4 rounded-2xl border-xblack-3 p-2 px-10'
+			className='flex justify-center font-bold text-lg border-4 rounded-2xl border-xblack-3 p-2 px-10 select-none'
 			initial={{ background: '#F0F0F0' }}
 			whileHover={{
 				scale: 1.07,

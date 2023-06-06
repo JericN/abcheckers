@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function Template({ item }) {
 	return (
 		<motion.div
-			className={'w-72 sm:w-96 lg:w-96 2k:w-[28rem] aspect-square flex flex-col items-center gap-6 p-10' + item.blockCSS}
+			className={'w-72 sm:w-[22rem] lg:w-[22rem] 2k:w-[28rem] aspect-square flex flex-col items-center gap-6 p-10' + item.blockCSS}
 			whileHover={{
 				scale: 0.95,
 				transition: {

@@ -37,7 +37,7 @@ export default function Problem({ problemRef, animateProblem }) {
 	return (
 		<section ref={problemRef} className='responsive-section center-column text-xwhite'>
 			<motion.h2
-				className='responsive-text-xl font-A font-bold text-center mb-16 border-b-4'
+				className='responsive-text-2xl font-A font-bold text-center mb-16 border-b-4'
 				drag
 				dragSnapToOrigin='true'
 				dragTransition={{ bounceStiffness: 200, bounceDamping: 10 }}
@@ -47,8 +47,8 @@ export default function Problem({ problemRef, animateProblem }) {
 			</motion.h2>
 
 			<div className='grid lg:grid-cols-2'>
-				{content.map((item) => {
-					return <Template item={item} />;
+				{content.map((item, i) => {
+					return <Template key={i} item={item} />;
 				})}
 			</div>
 		</section>
@@ -75,7 +75,7 @@ const content = [
 	{
 		label: '∅ HYPOTHESIS',
 		description:
-			'The mis/disinformation tweets about Sandro Marcos, attributing the weakening peso solely to foreign factors, do not significantly differ based on whether the individuals support or oppose his statement.',
+			'The mis/disinformation tweets about Sandro Marcos, attributing the weakening peso solely to foreign factors, do not significantly differ whether the individuals support or oppose his statement.',
 		blockCSS: ' bg-xwhite text-xblack lg:bg-xblack-1 lg:text-xwhite',
 		labelCSS: ' border-b-xblack-1 lg:border-b-xwhite',
 		descCSS: ' font-bold',

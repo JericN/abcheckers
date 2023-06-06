@@ -21,7 +21,7 @@ export default function Item({ item, hiddenEgg, dragStart, dragEnd }) {
 				layout
 				whileHover={{
 					scale: 1.01,
-					borderColor: 'white',
+					borderColor: '#FFFFFFFF',
 					transition: {
 						duration: 0.2,
 					},

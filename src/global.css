@@ -11,26 +11,34 @@
     .responsive-section {
         @apply min-h-screen max-w-sm sm:max-w-screen-sm lg:max-w-screen-lg 2k:max-w-screen-2k;
     }
-    /* .responsive-box {
-        @apply max-w-sm sm:w lg:max-w-screen-md 2k:max-w-screen-2k;
-    } */
+    .responsive-box {
+        @apply w-[24rem] sm:w-[46rem] lg:w-[46rem] 2k:w-[60rem];
+    }
 
 
     .responsive-text-xs{
-        @apply text-xs sm:text-lg lg:text-lg 2k:text-2xl
+        @apply text-xs sm:text-base lg:text-base 2k:text-2xl
     }
     .responsive-text-sm {
-        @apply text-xs sm:text-xl lg:text-xl 2k:text-2xl
+        @apply text-base sm:text-lg lg:text-lg 2k:text-2xl
     }
-    
     .responsive-text-md {
-        @apply text-xl sm:text-3xl lg:text-3xl 2k:text-4xl
+        @apply text-xl sm:text-2xl lg:text-2xl 2k:text-4xl
     }
     .responsive-text-lg {
-        @apply text-2xl sm:text-5xl lg:text-5xl 2k:text-6xl
+        @apply text-2xl sm:text-3xl lg:text-3xl 2k:text-5xl
     }
     .responsive-text-xl {
-        @apply text-3xl sm:text-6xl lg:text-6xl 2k:text-7xl
+        @apply text-3xl sm:text-4xl lg:text-4xl 2k:text-6xl
+    }
+    .responsive-text-2xl {
+        @apply text-4xl sm:text-5xl lg:text-5xl 2k:text-7xl
+    }
+    .responsive-text-3xl {
+        @apply text-5xl sm:text-6xl lg:text-6xl 2k:text-8xl
+    }
+    .responsive-text-8xl {
+        @apply text-5xl sm:text-8xl lg:text-8xl 2k:text-9xl
     }
 
     .center-column {

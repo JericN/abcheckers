@@ -8,7 +8,7 @@ import Overview from './pages/02-Overview';
 import Problem from './pages/03-Problem';
 import DataCollection from './pages/04-DataCollection';
 import DataProcessing from './pages/05-DataProcessing';
-import Visualization from './pages/Visualization';
+import Visualization from './pages/06-Visualization';
 
 import Team from './pages/Team';
 
@@ -38,13 +38,13 @@ function App() {
 	return (
 		<>
 			<Header />
-			<motion.div animate={globalControl} className='flex flex-col items-center gap-56'>
+			<motion.div animate={globalControl} className='flex flex-col items-center gap-96 text-xblack'>
 				<Landing />
 				<Overview overviewRef={overviewRef} animateOverview={animateOverview} />
 				<Problem problemRef={problemRef} animateProblem={animateProblem} />
 				<DataCollection />
 				<DataProcessing />
-				{/* <Visualization /> */}
+				<Visualization />
 				{/* <Team /> */}
 			</motion.div>
 		</>

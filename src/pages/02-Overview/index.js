@@ -13,13 +13,13 @@ export default function Overview({ overviewRef, animateOverview }) {
 		const nodes = overviewRef.current.childNodes[1].childNodes;
 
 		if (isInView) {
-			animateOverview(title, { x: 0, borderColor: 'white' });
+			animateOverview(title, { x: 0, borderColor: '#FFFFFFFF' });
 			for (let i = 0; i < nodes.length; i++) {
 				if (i % 2 === 0) animateOverview(nodes[i], { x: 0, opacity: 1 }, { delay: 0.3 + i * 0.1 });
 				else animateOverview(nodes[i], { y: 0, opacity: 1 }, { delay: 0.23 + i * 0.1 });
 			}
 		} else {
-			animateOverview(title, { x: -300, borderColor: 'transparent' });
+			animateOverview(title, { x: -300, borderColor: '#FFFFFF00' });
 			for (let i = 0; i < nodes.length; i++) {
 				if (i % 2 === 0) animateOverview(nodes[i], { x: -100, opacity: 0 });
 				else animateOverview(nodes[i], { y: 100, opacity: 0 });
@@ -58,7 +58,7 @@ export default function Overview({ overviewRef, animateOverview }) {
 	return (
 		<section ref={overviewRef} className='responsive-section center-column text-xwhite'>
 			<motion.h2
-				className='responsive-text-xl font-bold mb-10 border-b-4 border-b-transparent select-none'
+				className='responsive-text-2xl font-bold mb-10 border-b-4 border-b-[#FFFFFF00] select-none'
 				drag
 				dragSnapToOrigin='true'
 				dragTransition={{
@@ -71,7 +71,7 @@ export default function Overview({ overviewRef, animateOverview }) {
 			</motion.h2>
 			<motion.div className='grid lg:grid-cols-2t justify-items-center'>
 				{content.map((item, i) => {
-					return <Template item={content[i]} hiddenEgg={hiddenEgg[i]} dragStart={dragStart} dragEnd={dragEnd} />;
+					return <Template key={i} item={content[i]} hiddenEgg={hiddenEgg[i]} dragStart={dragStart} dragEnd={dragEnd} />;
 				})}
 			</motion.div>
 		</section>
