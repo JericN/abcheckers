@@ -29,8 +29,8 @@ export default function Landing() {
 		},
 		tapping: {
 			rotate: 720,
-			scale: 0.7,
-			transition: { duration: 1.2, ease: 'easeInOut' },
+			// scale: 0.7,
+			transition: { duration: 1, ease: 'easeInOut' },
 		},
 		dragging: {
 			rotate: [0, 360],

@@ -45,7 +45,7 @@ function App() {
 				<DataCollection />
 				<DataProcessing />
 				<Visualization />
-				{/* <Team /> */}
+				<Team />
 			</motion.div>
 		</>
 	);
