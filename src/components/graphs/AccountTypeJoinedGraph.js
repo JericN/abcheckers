@@ -61,7 +61,7 @@ export default function AccountTypeJoinedGraph({ data, title, caption }) {
 	return (
 		<div className={'responsive-widebox border-4 aspect-[2/1] border-xblack-3 p-5 rounded-3xl flex flex-col items-center'}>
 			<div className='font-B color-B text-xl font-bold'>{title}</div>
-			<div className={'w-full h-5/6 mr-10 mt-5'}>
+			<div className={'w-full h-[300px] mr-10 mt-5'}>
 				<ResponsiveContainer>
 					<BarChart
 						data={finalData}

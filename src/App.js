@@ -9,6 +9,9 @@ import Problem from './pages/03-Problem';
 import DataCollection from './pages/04-DataCollection';
 import DataProcessing from './pages/05-DataProcessing';
 import Visualization from './pages/06-Visualization';
+import Modeling from './pages/07-Modeling';
+import Statistics from './pages/08-Statistics';
+import ResultDiscussion from './pages/09-ResultDiscussion';
 
 import Team from './pages/Team';
 
@@ -45,6 +48,9 @@ function App() {
 				<DataCollection />
 				<DataProcessing />
 				<Visualization />
+				<Modeling />
+				<Statistics />
+				<ResultDiscussion />
 				<Team />
 			</motion.div>
 		</>

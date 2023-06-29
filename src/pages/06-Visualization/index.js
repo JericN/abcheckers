@@ -256,7 +256,7 @@ export default function Visualization() {
 					</div>
 					<BarChartGraph
 						addClass={'max-w-[73rem] aspect-[2/1]'}
-						height={'h-5/6'}
+						height={'h-[330px]'}
 						scale={'band'}
 						data={joinedDate}
 						title={'Account Joined Date'}
@@ -282,7 +282,7 @@ export default function Visualization() {
 					<div className='flex flex-col lg:flex-row gap-4'>
 						<BarChartGraph
 							addClass={'max-w-xl aspect-[5/4]'}
-							height={'h-2/3'}
+							height={'h-[200px]'}
 							scale={'auto'}
 							data={tweetTypeData}
 							title={'Tweet Type Distribution'}
@@ -292,7 +292,7 @@ export default function Visualization() {
 						/>
 						<BarChartGraph
 							addClass={'max-w-xl aspect-[5/4]'}
-							height={'h-2/3'}
+							height={'h-[200px]'}
 							scale={'auto'}
 							data={contentTypeData}
 							title={'Content Type Distribution'}
@@ -315,10 +315,10 @@ export default function Visualization() {
 				</motion.div>
 
 				{/* Correlation */}
-				<motion.div ref={correlationRef} className={css_subsection}>
+				{/* <motion.div ref={correlationRef} className={css_subsection}>
 					<motion.h2 className='text-2xl font-bold text-center font-A sm:text-5xl mt-10'>Correlation</motion.h2>
 					<HeatmapGraphA title={'Correlation Heatmap'} caption={captions.heatMap} />
-				</motion.div>
+				</motion.div> */}
 			</div>
 		</section>
 	);

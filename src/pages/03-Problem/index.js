@@ -67,7 +67,7 @@ const content = [
 	{
 		label: 'HYPOTHESIS',
 		description:
-			'The mis/disinformation tweets about Sandro Marcos, attributing the weakening peso solely to foreign factors, are mostly from those who support his statement.',
+			' The mis/disinformation tweets about Sandro Marcos, attributing the weakening peso solely to foreign factors are not evenly distributed between those who support, remain impartial, and oppose his statement.',
 		blockCSS: ' bg-xblack-1 text-xwhite',
 		labelCSS: ' border-b-xwhite',
 		descCSS: '',
@@ -75,14 +75,14 @@ const content = [
 	{
 		label: '∅ HYPOTHESIS',
 		description:
-			'The mis/disinformation tweets about Sandro Marcos, attributing the weakening peso solely to foreign factors, do not significantly differ whether the individuals support or oppose his statement.',
+			'The mis/disinformation tweets about Sandro Marcos, attributing the weakening peso solely to foreign factors are evenly distributed between those who support, remain impartial, and oppose his statement.',
 		blockCSS: ' bg-xwhite text-xblack lg:bg-xblack-1 lg:text-xwhite',
 		labelCSS: ' border-b-xblack-1 lg:border-b-xwhite',
 		descCSS: ' font-bold',
 	},
 	{
 		label: 'ACTION PLAN',
-		description: 'Analyze the sentiment of tweets by categorizing them into positive, negative, or neutral categories',
+		description: 'Analyze the sentiment of tweets by categorizing them into support, oppose, and neutral categories',
 		blockCSS: ' bg-xblack-1 text-xwhite lg:bg-xwhite lg:text-xblack',
 		labelCSS: ' border-b-xwhite lg:border-b-xblack-1',
 		descCSS: ' font-bold',

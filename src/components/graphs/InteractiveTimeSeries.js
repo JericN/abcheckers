@@ -61,7 +61,7 @@ export default function InteractiveTimeSeries({ title, caption, xLabel }) {
 	return (
 		<div className='responsive-widebox aspect-[2/1] border-4 border-xblack-3 p-5 rounded-3xl flex flex-col items-center'>
 			<div className='font-B color-B text-xl font-bold'>{title}</div>
-			<div className='w-full h-3/4 mr-10 mt-5'>
+			<div className='w-full h-[300px] mr-10 mt-5'>
 				<ResponsiveContainer width='100%' height='100%'>
 					<LineChart
 						width={500}
@@ -83,7 +83,7 @@ export default function InteractiveTimeSeries({ title, caption, xLabel }) {
 				</ResponsiveContainer>
 			</div>
 			<div className='mt-10 font-B text-justify color-B mb-3'>{caption}</div>
-			<motion.div ref={sliderRef} className='border-4 border-[#121212] rounded-2xl w-96 h-11'>
+			<motion.div ref={sliderRef} className='border-4 border-[#121212] rounded-2xl w-80 h-11'>
 				<motion.div
 					className='w-10 h-10 -mt-[0.9px] bg-slate-900 rounded-2xl'
 					style={{ x }}
