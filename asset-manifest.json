@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/abcheckers-portfolio/static/css/main.5223d46e.css",
-    "main.js": "/abcheckers-portfolio/static/js/main.3d8d989a.js",
-    "static/media/logo.png": "/abcheckers-portfolio/static/media/logo.d09803c8602f0435f032.png",
-    "static/media/model_table.png": "/abcheckers-portfolio/static/media/model_table.087d436caa0cae97c50c.png",
-    "static/media/heatMapGraph.png": "/abcheckers-portfolio/static/media/heatMapGraph.7a41ef84088da543c414.png",
-    "static/media/chip_black.png": "/abcheckers-portfolio/static/media/chip_black.c2cd1537122276198043.png",
-    "static/media/chip_white.png": "/abcheckers-portfolio/static/media/chip_white.2cf5ccf9d772bff6f8b9.png",
-    "static/media/user_sentiment.png": "/abcheckers-portfolio/static/media/user_sentiment.e94a0523eec0a2551596.png",
-    "index.html": "/abcheckers-portfolio/index.html",
-    "main.5223d46e.css.map": "/abcheckers-portfolio/static/css/main.5223d46e.css.map",
-    "main.3d8d989a.js.map": "/abcheckers-portfolio/static/js/main.3d8d989a.js.map"
+    "main.css": "/abcheckers/static/css/main.5223d46e.css",
+    "main.js": "/abcheckers/static/js/main.78413aed.js",
+    "static/media/logo.png": "/abcheckers/static/media/logo.d09803c8602f0435f032.png",
+    "static/media/model_table.png": "/abcheckers/static/media/model_table.087d436caa0cae97c50c.png",
+    "static/media/heatMapGraph.png": "/abcheckers/static/media/heatMapGraph.7a41ef84088da543c414.png",
+    "static/media/chip_black.png": "/abcheckers/static/media/chip_black.c2cd1537122276198043.png",
+    "static/media/chip_white.png": "/abcheckers/static/media/chip_white.2cf5ccf9d772bff6f8b9.png",
+    "static/media/user_sentiment.png": "/abcheckers/static/media/user_sentiment.e94a0523eec0a2551596.png",
+    "index.html": "/abcheckers/index.html",
+    "main.5223d46e.css.map": "/abcheckers/static/css/main.5223d46e.css.map",
+    "main.78413aed.js.map": "/abcheckers/static/js/main.78413aed.js.map"
   },
   "entrypoints": [
     "static/css/main.5223d46e.css",
-    "static/js/main.3d8d989a.js"
+    "static/js/main.78413aed.js"
   ]
 }
