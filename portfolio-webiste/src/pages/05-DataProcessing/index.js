@@ -147,5 +147,5 @@ const NLPContent = [
 
 const code = {
 	label: 'Check our code!',
-	link: 'https://colab.research.google.com/drive/1oon27jd7hgl2NebDX36J3Ay-p-qKaQ3N?usp=sharing',
+	link: 'https://github.com/JericN/abcheckers/blob/main/machine-learning/ml-pipeline.ipynb',
 };
