@@ -147,5 +147,5 @@ const NLPContent = [
 
 const code = {
 	label: 'Check our code!',
-	link: 'https://colab.research.google.com/drive/19dMbffOElGYK9K-7W2CJzRtiOjbXZ02S?usp=sharing',
+	link: 'https://colab.research.google.com/drive/1oon27jd7hgl2NebDX36J3Ay-p-qKaQ3N?usp=sharing',
 };

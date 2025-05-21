@@ -116,5 +116,5 @@ const content = [
 const data = {
 	desc: 'We collected 150 data points to be used for exploration.',
 	title: 'Check our data',
-	link: 'https://raw.githubusercontent.com/JericNarte/cs132-data/master/public_dataset.csv',
+	link: 'https://raw.githubusercontent.com/JericN/abcheckers/main/datasets/public_dataset.csv',
 };
