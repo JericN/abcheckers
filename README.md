@@ -11,6 +11,14 @@ This project focuses on:
 - **Misinformation Detection**: Identifying and analyzing the spread of false or misleading information.
 - **Web Interface**: Presenting Full implementation and findings through an interactive ReactJS-based website.
 
+## 🌐 Full Walkthrough, Results, and Discussion
+
+For a comprehensive overview of the project—including detailed explanations, methodology, results, and insightful discussions—please visit the portfolio page:  
+
+[https://jericn.github.io/abcheckers/](https://jericn.github.io/abcheckers/)  
+
+This page provides an interactive and in-depth look at the entire ABCheckers project, offering valuable context and visualization to better understand the findings.
+
 ## 📁 Repository Structure
 
 - `portfolio-website/` – ReactJS frontend for data visualization
@@ -28,3 +36,4 @@ We thank the following contributors for their dedication and collaboration:
 ## 📄 License
 
 This project is licensed under the MIT License.
+](https://jericn.github.io/abcheckers/)
